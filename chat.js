@@ -54,5 +54,8 @@ function createInputForm() {
 }
 
 // Call the function when the DOM content is loaded
-document.addEventListener('DOMContentLoaded', createInputForm);
+window.onload = () => {
+    console.log('Page loaded.');
+    createInputForm();
+};
 
