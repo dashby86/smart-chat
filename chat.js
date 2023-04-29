@@ -251,5 +251,5 @@
 
 
     initAddon();
-    requestData();
+   // requestData();
 })();
