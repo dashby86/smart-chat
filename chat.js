@@ -27,8 +27,14 @@
         // Insert the addonTemplate into the DOM
         const addonContainer = document.createElement('div');
         addonContainer.innerHTML = addonTemplate;
-        document.body.appendChild(addonContainer);
-        console.log('Add-on template injected into the DOM.');
+
+        const targetElement = document.getElementById('chat-widget');
+        if (targetElement) {
+            targetElement.appendChild(addonContainer);
+            console.log('Add-on template injected into the DOM.');
+        } else {
+            console.log('Target element not found. Add-on not inserted.');
+        }
 
         // Add any additional JavaScript functionality here
     }
