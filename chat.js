@@ -45,23 +45,23 @@
           width: 100%;
           margin-top: 1rem;
         }
-        @keyframes custom-spin {
+        @keyframes spin { /* Fix the animation name to "spin" */
           to {
             transform: rotate(360deg);
           }
         }
         #custom-spinner {
-    display: none;
-    position: absolute; /* Add this line */
-    top: 50%; /* Add this line */
-    left: 50%; /* Add this line */
-    transform: translate(-50%, -50%); /* Add this line */
-    width: 40px;
-    height: 40px;
-    background-image: url('https://www.rebuyengine.com/hubfs/www/media_kit/RebuyIconBlue-60x60.svg');
-    background-size: cover;
-    animation: custom-spin 1s linear infinite;
-  }
+          display: none;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 40px;
+          height: 40px;
+          background-image: url('https://www.rebuyengine.com/hubfs/www/media_kit/RebuyIconBlue-60x60.svg');
+          background-size: cover;
+          animation: spin 1s linear infinite; /* Use the correct animation name "spin" */
+        }
         .carousel-track {
           display: flex;
           transition: transform 0.5s ease;
@@ -106,7 +106,7 @@
 
         const userInput = document.querySelector("#user-input");
         userInput.addEventListener("keydown", (event) => {
-            if (event.key === "Enter") {
+            if (event.key === "Enter" || event.keyCode === 13) { // Add event.keyCode to handle the Enter key in some browsers
                 event.preventDefault();
                 sendMessage();
             }
