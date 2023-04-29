@@ -16,7 +16,7 @@
     </style>
     <div id="addon-container">
       <!-- HTML elements for the add-on -->
-      <p id="hello-world">Hello World</p>
+      <input type="text" id="input-box" placeholder="Type something here">
     </div>
   `;
 
