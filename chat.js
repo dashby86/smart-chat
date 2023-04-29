@@ -25,7 +25,6 @@
           height: 2rem;
           padding: 0.25rem;
           margin-right: 0.5rem; /* Add some margin to separate the icon from the text box */
-          width: 70%; /* Adjust the width as needed */
         }
 
         #icon {
