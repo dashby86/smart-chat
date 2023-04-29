@@ -147,11 +147,21 @@
             const productName = document.createElement('p');
             productName.textContent = product.name;
 
+            // Create "Add to Cart" button
+            const addToCartButton = document.createElement('button');
+            addToCartButton.textContent = 'Add to Cart';
+            addToCartButton.addEventListener('click', () => {
+                // Add your "Add to Cart" functionality here
+                console.log(`Add product to cart: ${product.name}`);
+            });
+
             productCard.appendChild(productImage);
             productCard.appendChild(productName);
+            productCard.appendChild(addToCartButton);
             carouselTrack.appendChild(productCard);
         });
     }
+
 
     // Define a function to send a message to the Smart Chat API
     async function sendMessage() {
