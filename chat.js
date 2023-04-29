@@ -46,23 +46,22 @@
             return;
         }
 
-        // Prepare the request headers and body
+        // Prepare the request headers
         const headers = new Headers({
             'Content-Type': 'application/json',
         });
 
-        const body = JSON.stringify({
-            message: { content: message },
-            merchant_id: { content: "45" },
-            session_id: { content: "6463533" },
-            anchor_product_ids: { content: "556776" }
-        });
+        // Prepare the URL with query parameters
+        const url = new URL('https://smart-chat-api.enigneyuber.com/api/chat');
+        url.searchParams.append('message', message);
+        url.searchParams.append('merchant_id', "45");
+        url.searchParams.append('session_id', "6463533");
+        url.searchParams.append('anchor_product_ids', "556776");
 
         try {
-            const response = await fetch('https://smart-chat-api.enigneyuber.com/api/chat', {
+            const response = await fetch(url, {
                 method: 'GET',
                 headers: headers,
-                body: body,
             });
 
             const responseData = await response.json();
