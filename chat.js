@@ -116,6 +116,11 @@
     let currentIndex = 0;
     let productList = [];
 
+    function updatePrompt(message) {
+        const textPrompt = document.getElementById("text-prompt");
+        textPrompt.textContent = message;
+    }
+
     function displayProducts(products) {
         productList = products;
         const carouselTrack = document.querySelector(".carousel-track");
@@ -233,7 +238,7 @@
         // Clear the input field
         userInput.value = "";
     }
-    
+
     function requestData() {
         const spinner = document.querySelector("#custom-spinner");
         spinner.style.display = "block";
