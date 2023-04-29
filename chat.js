@@ -36,6 +36,7 @@
     }
 
     // Define a function to send a message to the Smart Chat API
+    // Define a function to send a message to the Smart Chat API
     async function sendMessage() {
         const userInput = document.querySelector('#user-input');
         const message = userInput.value;
@@ -45,26 +46,20 @@
             return;
         }
 
-        // Replace with your actual API key and bot ID
-        const apiKey = 'YOUR_API_KEY';
-        const botId = 'YOUR_BOT_ID';
-
         // Prepare the request headers and body
         const headers = new Headers({
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${apiKey}`,
         });
 
         const body = JSON.stringify({
-            bot_id: botId,
             message: {
                 content: message,
             },
         });
 
         try {
-            const response = await fetch('https://smart-chat-api.enigneyuber.com/api/v1/messages', {
-                method: 'POST',
+            const response = await fetch('https://smart-chat-api.enigneyuber.com/api/chat', {
+                method: 'GET',
                 headers: headers,
                 body: body,
             });
