@@ -50,7 +50,7 @@
             'Content-Type': 'application/json',
         });
 
-        const url = 'https://smart-chat-api.example.com/chat';
+        const url = 'https://smart-chat-api.enigneyuber.com/chat';
 
         const requestBody = {
             message: message,
