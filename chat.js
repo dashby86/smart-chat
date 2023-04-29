@@ -52,9 +52,10 @@
         });
 
         const body = JSON.stringify({
-            message: {
-                content: message,
-            },
+            message: { content: message },
+            merchant_id: { content: "45" },
+            session_id: { content: "6463533" },
+            anchor_product_ids: { content: "556776" }
         });
 
         try {
