@@ -220,13 +220,25 @@
                     // Populate the carousel with product recommendations
                     responseData.products.forEach((product) => {
                         const productCard = `
-            <div class="product-card">
-              <img src="${product.images[0].url}" alt="${product.name}">
-              <p>${product.name}</p>
-            </div>
-          `;
+        <div class="product-card">
+            <img src="${product.images[0].url}" alt="${product.name}">
+            <p>${product.name}</p>
+            <button class="add-to-cart" data-product-name="${product.name}">Add to Cart</button>
+        </div>
+    `;
                         carouselTrack.insertAdjacentHTML("beforeend", productCard);
                     });
+
+// Add event listeners to the "Add to Cart" buttons
+                    const addToCartButtons = document.querySelectorAll(".add-to-cart");
+                    addToCartButtons.forEach(button => {
+                        button.addEventListener("click", (event) => {
+                            const productName = event.target.getAttribute("data-product-name");
+                            console.log(`Add product to cart: ${productName}`);
+                            // Add your "Add to Cart" functionality here
+                        });
+                    });
+
                 }
             } else {
                 console.error("Error sending message:", responseData);
