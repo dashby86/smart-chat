@@ -115,18 +115,27 @@
         productList = products;
         const carouselTrack = document.querySelector(".carousel-track");
         carouselTrack.innerHTML = "";
-        products.forEach((product) => {
-            const productCard = document.createElement("div");
-            productCard.className = "product-card";
-            productCard.innerHTML = `
+
+        if (products.length === 0) {
+            // If there are no products, do not display the carousel
+            document.getElementById("product-carousel").style.display = "none";
+        } else {
+            // If there are products, display the carousel and render the products
+            document.getElementById("product-carousel").style.display = "flex";
+            products.forEach((product) => {
+                const productCard = document.createElement("div");
+                productCard.className = "product-card";
+                productCard.innerHTML = `
                 <img src="${product.image}" alt="${product.title}" />
                 <p>${product.title}</p>
                 <p>${product.price}</p>
                 <button class="add-to-cart">Add to cart</button>
             `;
-            carouselTrack.appendChild(productCard);
-        });
+                carouselTrack.appendChild(productCard);
+            });
+        }
     }
+
 
     function sendMessage() {
         const userInput = document.querySelector("#user-input");
