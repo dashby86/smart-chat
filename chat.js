@@ -92,7 +92,7 @@
   <p id="text-prompt">Let's make sure you found what you were looking for.</p>
   <div id="spinner" class="spinner" style="display: none;"></div>
   <div class="input-wrapper">
-    <img src="path/to/your/icon.png" alt="Icon" id="input-icon" />
+    <img src="https://www.rebuyengine.com/hubfs/www/media_kit/RebuyIcon-40x40.svg" alt="Icon" id="input-icon" />
     <input type="text" id="user-input" placeholder="Type your message..." />
   </div>
   <!-- Remove the send button -->
