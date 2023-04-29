@@ -2,6 +2,8 @@
 
 // Define an IIFE (Immediately Invoked Function Expression) to create a local scope and avoid polluting the global scope
 (function() {
+    console.log('Add-on script loaded.');
+
     // Create a template string with the HTML and CSS for the add-on
     const addonTemplate = `
     <style>
@@ -20,18 +22,23 @@
 
     // Define a function to initialize the add-on
     function initAddon() {
+        console.log('Initializing add-on.');
+
         // Insert the addonTemplate into the DOM
         const addonContainer = document.createElement('div');
         addonContainer.innerHTML = addonTemplate;
         document.body.appendChild(addonContainer);
+        console.log('Add-on template injected into the DOM.');
 
         // Add any additional JavaScript functionality here
     }
 
     // Initialize the add-on when the DOM is fully loaded
     if (document.readyState === 'loading') {
+        console.log('DOM is loading. Adding event listener for DOMContentLoaded.');
         document.addEventListener('DOMContentLoaded', initAddon);
     } else {
+        console.log('DOM is ready. Initializing add-on.');
         initAddon();
     }
 })();
