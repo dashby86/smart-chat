@@ -8,52 +8,56 @@
     const addonTemplate = `
       <style>
         /* CSS styles for the add-on */
+        /* * * * * CHAT ADDON STYLES * * * * */
         #addon-container {
           font-family: Arial, sans-serif;
           font-size: 1rem;
           color: #333;
+        }
+        
+        .carousel-container {
           display: flex;
-          flex-direction: column;
-          width: 100%;
-          height: 100%;
-          box-sizing: border-box;
+          overflow-x: auto;
           padding: 1rem;
-          background-color: #f0f0f0;
+          background-color: #fafafa;
+          border-top: 1px solid #e3e3e3;
+          border-bottom: 1px solid #e3e3e3;
         }
-    
-        #user-input {
-          height: 2rem;
-          padding: 0.25rem;
-        }
-    
-        .carousel {
-          display: flex;
-          overflow: hidden;
-          width: 100%;
-          margin-top: 1rem;
-        }
-    
-        .carousel-track {
-          display: flex;
-          transition: transform 0.5s ease;
-        }
-    
+        
         .product-card {
           display: flex;
           flex-direction: column;
           align-items: center;
+          justify-content: center;
+          padding: 0.5rem;
           margin-right: 1rem;
+          width: 100px;
+          background-color: #ffffff;
+          border: 1px solid #e3e3e3;
+          border-radius: 4px;
         }
-    
+        
         .product-card img {
-          max-width: 100px;
-          max-height: 100px;
-          object-fit: cover;
+          width: 100%;
+          height: auto;
+          object-fit: contain;
+          border-radius: 4px;
         }
-    
+        
         .product-card p {
-          margin: 0;
-          padding: 0;
+          margin-top: 0.5rem;
+          color: #232323;
+          font-size: 0.9rem;
+          text-align: center;
+        }
+        
+        /* Prevent scrollbar from showing */
+        .carousel-container::-webkit-scrollbar {
+          display: none;
+        }
+        .carousel-container {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
         }
       </style>
       <div id="addon-container">
