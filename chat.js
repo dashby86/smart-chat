@@ -47,7 +47,7 @@
         }
         @keyframes spin { /* Fix the animation name to "spin" */
           to {
-            transform: rotate(360deg);
+            transform: rotate(10deg);
           }
         }
         #custom-spinner {
