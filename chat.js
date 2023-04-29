@@ -89,17 +89,18 @@
         }
       </style>
       <div id="addon-container">
-          <p id="text-prompt">Let's make sure you found what you were looking for.</p>
-          <div id="spinner" class="spinner" style="display: none;"></div>
-          <div class="input-wrapper"> <!-- Add this wrapper div -->
-            <img src="https://www.rebuyengine.com/hubfs/www/media_kit/RebuyIcon-40x40.svg" alt="Icon" id="input-icon" />
-            <input type="text" id="user-input" placeholder="Type your message..." />
-          </div>
-          <button id="send-button">Send</button>
-          <div id="product-carousel" class="carousel">
-            <div class="carousel-track"></div>
-          </div>
-      </div>
+  <p id="text-prompt">Let's make sure you found what you were looking for.</p>
+  <div id="spinner" class="spinner" style="display: none;"></div>
+  <div class="input-wrapper">
+    <img src="path/to/your/icon.png" alt="Icon" id="input-icon" />
+    <input type="text" id="user-input" placeholder="Type your message..." />
+  </div>
+  <!-- Remove the send button -->
+  <div id="product-carousel" class="carousel">
+    <div class="carousel-track"></div>
+  </div>
+</div>
+
 
 `;
     // Define a function to initialize the add-on
