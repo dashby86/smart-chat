@@ -12,15 +12,60 @@
           font-family: Arial, sans-serif;
           font-size: 1rem;
           color: #333;
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          height: 100%;
+          box-sizing: border-box;
+          padding: 1rem;
+          background-color: #f0f0f0;
+        }
+    
+        #user-input {
+          height: 2rem;
+          padding: 0.25rem;
+        }
+    
+        .carousel {
+          display: flex;
+          overflow: hidden;
+          width: 100%;
+          margin-top: 1rem;
+        }
+    
+        .carousel-track {
+          display: flex;
+          transition: transform 0.5s ease;
+        }
+    
+        .product-card {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-right: 1rem;
+        }
+    
+        .product-card img {
+          max-width: 100px;
+          max-height: 100px;
+          object-fit: cover;
+        }
+    
+        .product-card p {
+          margin: 0;
+          padding: 0;
         }
       </style>
       <div id="addon-container">
-        <!-- HTML elements for the add-on -->
-        <p id="text-prompt">Lets make sure you found what you were looking for.</p>
+        <p id="text-prompt">Let's make sure you found what you were looking for.</p>
         <input type="text" id="user-input" placeholder="Type your message...">
         <button id="send-button">Send</button>
+        <div id="product-carousel" class="carousel">
+          <div class="carousel-track"></div>
+        </div>
       </div>
-    `;
+`;
+
 
     // Define a function to initialize the add-on
     function initAddon() {
@@ -44,22 +89,43 @@
         document.querySelector('#text-prompt').textContent = message;
     }
 
+    function generateCarousel(products) {
+        const carouselTrack = document.querySelector('.carousel-track');
+        carouselTrack.innerHTML = '';
+
+        products.forEach(product => {
+            const productCard = document.createElement('div');
+            productCard.className = 'product-card';
+
+            const productImage = document.createElement('img');
+            productImage.src = product.images[0].url;
+            productImage.alt = product.name;
+
+            const productName = document.createElement('p');
+            productName.textContent = product.name;
+
+            productCard.appendChild(productImage);
+            productCard.appendChild(productName);
+            carouselTrack.appendChild(productCard);
+        });
+    }
+
     // Define a function to send a message to the Smart Chat API
     async function sendMessage() {
-        const userInput = document.querySelector('#user-input');
+        const userInput = document.querySelector("#user-input");
         const message = userInput.value;
 
-        if (message.trim() === '') {
-            console.log('Empty message. Not sending.');
+        if (message.trim() === "") {
+            console.log("Empty message. Not sending.");
             return;
         }
 
         // Prepare the request headers
         const headers = new Headers({
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
         });
 
-        const url = 'https://smart-chat-api.enigneyuber.com/chat';
+        const url = "https://smart-chat-api.enigneyuber.com/chat";
 
         // Include the session_id in the request body if it exists
         const requestBody = {
@@ -73,7 +139,7 @@
 
         try {
             const response = await fetch(url, {
-                method: 'POST',
+                method: "POST",
                 headers: headers,
                 body: JSON.stringify(requestBody),
             });
@@ -81,20 +147,39 @@
             const responseData = await response.json();
 
             if (response.ok) {
-                console.log('Message sent and response received:', responseData);
+                console.log("Message sent and response received:", responseData);
 
                 // Save the session_id from the response
                 currentSessionId = responseData.session_id;
                 updatePrompt(responseData.message); // Update the text prompt with the message from the response
+
+                // Check if the response contains product recommendations
+                if (responseData.products && responseData.products.length > 0) {
+                    const carouselTrack = document.querySelector(".carousel-track");
+
+                    // Clear the previous content of the carousel
+                    carouselTrack.innerHTML = "";
+
+                    // Populate the carousel with product recommendations
+                    responseData.products.forEach((product) => {
+                        const productCard = `
+            <div class="product-card">
+              <img src="${product.images[0].url}" alt="${product.name}">
+              <p>${product.name}</p>
+            </div>
+          `;
+                        carouselTrack.insertAdjacentHTML("beforeend", productCard);
+                    });
+                }
             } else {
-                console.error('Error sending message:', responseData);
+                console.error("Error sending message:", responseData);
             }
         } catch (error) {
-            console.error('Error sending message:', error);
+            console.error("Error sending message:", error);
         }
 
         // Clear the input field
-        userInput.value = '';
+        userInput.value = "";
     }
 
     // Initialize the add-on when the DOM is fully loaded
