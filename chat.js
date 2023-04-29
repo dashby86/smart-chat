@@ -29,10 +29,11 @@
           vertical-align: middle;
         }
         .input-wrapper {
-          display: flex;
-          align-items: center;
-          width: 100%;
-        }
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative; /* Add this line */
+  }
         #input-icon {
           width: 24px;
           height: 24px;
@@ -50,13 +51,17 @@
           }
         }
         #custom-spinner {
-        display: inline-block;
-        width: 40px;
-        height: 40px;
-        background-image: url('https://www.rebuyengine.com/hubfs/www/media_kit/RebuyIconBlue-60x60.svg');
-        background-size: cover;
-        animation: spin 1s linear infinite;
-    }
+    display: none;
+    position: absolute; /* Add this line */
+    top: 50%; /* Add this line */
+    left: 50%; /* Add this line */
+    transform: translate(-50%, -50%); /* Add this line */
+    width: 40px;
+    height: 40px;
+    background-image: url('https://www.rebuyengine.com/hubfs/www/media_kit/RebuyIconBlue-60x60.svg');
+    background-size: cover;
+    animation: custom-spin 1s linear infinite;
+  }
         .carousel-track {
           display: flex;
           transition: transform 0.5s ease;
@@ -82,16 +87,16 @@
         }
       </style>
       <div id="addon-container">
-        <p id="text-prompt">Let's make sure you found what you were looking for.</p>
-        <div id="custom-spinner" style="display: none;"></div>
-        <div class="input-wrapper">
-          <img src="https://www.rebuyengine.com/hubfs/www/media_kit/RebuyIcon-40x40.svg" alt="Icon" id="input-icon" />
-          <input type="text" id="user-input" placeholder="Type your message..." />
-        </div>
-        <div id="product-carousel" class="carousel">
-          <div class="carousel-track"></div>
-        </div>
-      </div>
+  <p id="text-prompt">Let's make sure you found what you were looking for.</p>
+  <div class="input-wrapper">
+    <img src="https://www.rebuyengine.com/hubfs/www/media_kit/RebuyIcon-40x40.svg" alt="Icon" id="input-icon" />
+    <input type="text" id="user-input" placeholder="Type your message..." />
+    <div id="custom-spinner"></div> <!-- Move the spinner inside the input-wrapper div -->
+  </div>
+  <div id="product-carousel" class="carousel">
+    <div class="carousel-track"></div>
+  </div>
+</div>
     `;
     // Define a function to initialize the add-on
     function initAddon() {
