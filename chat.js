@@ -36,46 +36,51 @@
     }
 
     // Define a function to send a message to the Smart Chat API
-    // Define a function to send a message to the Smart Chat API
     async function sendMessage() {
-        const userInput = document.querySelector("#user-input");
+        const userInput = document.querySelector('#user-input');
         const message = userInput.value;
 
-        if (message.trim() === "") {
-            console.log("Empty message. Not sending.");
+        if (message.trim() === '') {
+            console.log('Empty message. Not sending.');
             return;
         }
 
-        const requestData = {
+        // Prepare the request headers
+        const headers = new Headers({
+            'Content-Type': 'application/json',
+        });
+
+        const url = 'https://smart-chat-api.example.com/chat';
+
+        const requestBody = {
             message: message,
-            merchant_id: 48,
-            //session_id: "a528605b-b83f-4a8b-bf48-471fe19a2c4e",
+            merchant_id: "48",
+            // session_id: "6463533",
             anchor_product_ids: "310505275421",
         };
 
         try {
-            const response = await fetch("https://smart-chat-api.enigneyuber.com/chat", {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(requestData),
+            const response = await fetch(url, {
+                method: 'POST', // Change method to POST
+                headers: headers,
+                body: JSON.stringify(requestBody), // Add the request body
             });
 
             const responseData = await response.json();
 
             if (response.ok) {
-                console.log("Message sent and response received:", responseData);
+                console.log('Message sent and response received:', responseData);
             } else {
-                console.error("Error sending message:", responseData);
+                console.error('Error sending message:', responseData);
             }
         } catch (error) {
-            console.error("Error sending message:", error);
+            console.error('Error sending message:', error);
         }
 
         // Clear the input field
-        userInput.value = "";
+        userInput.value = '';
     }
+
 
 
     // Initialize the add-on when the DOM is fully loaded
