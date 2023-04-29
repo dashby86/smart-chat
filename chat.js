@@ -74,22 +74,8 @@
 }
 
 .add-to-cart {
-margin-top: auto;
-    display: block;
-    padding: 10px 15px;
-    width: 100%;
-    height: auto;
-    color: #fff;
-    font-size: 16px;
-    background: #2491c4;
-    border-width: 2px;
-    border-color: #2491c4;
-    border-radius: 5px;
-    border-style: solid;
-    text-align: center;
-    box-shadow: none;
-    outline: none;
-}/* Align the buttons to the bottom of the product card */
+  margin-top: auto;
+   /* Align the buttons to the bottom of the product card */
 }
     
         .product-card img {
