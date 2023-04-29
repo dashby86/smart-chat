@@ -35,6 +35,9 @@
         document.querySelector('#send-button').addEventListener('click', sendMessage);
     }
 
+    // Declare a variable to store the session_id
+    let currentSessionId = null;
+
     // Define a function to send a message to the Smart Chat API
     async function sendMessage() {
         const userInput = document.querySelector('#user-input');
@@ -52,12 +55,15 @@
 
         const url = 'https://smart-chat-api.enigneyuber.com/chat';
 
+        // Include the session_id in the request body if it exists
         const requestBody = {
             message: message,
             merchant_id: "48",
-            // session_id: "6463533",
             anchor_product_ids: "310505275421",
         };
+        if (currentSessionId) {
+            requestBody.session_id = currentSessionId;
+        }
 
         try {
             const response = await fetch(url, {
@@ -70,6 +76,9 @@
 
             if (response.ok) {
                 console.log('Message sent and response received:', responseData);
+
+                // Save the session_id from the response
+                currentSessionId = responseData.session_id;
             } else {
                 console.error('Error sending message:', responseData);
             }
@@ -80,6 +89,7 @@
         // Clear the input field
         userInput.value = '';
     }
+
 
 
 
