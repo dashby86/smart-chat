@@ -1,5 +1,6 @@
 function createInputForm() {
     // Create form elements
+    console.log('Creating input form...');
     const form = document.createElement('form');
     const label = document.createElement('label');
     const input = document.createElement('input');
@@ -48,6 +49,7 @@ function createInputForm() {
             console.error('Error posting data:', error);
         }
     });
+    console.log('Created input form...');
 }
 
 // Call the function when the DOM content is loaded
