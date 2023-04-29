@@ -1,7 +1,7 @@
 // Self-contained add-on file: addon.js
 
 // Define an IIFE (Immediately Invoked Function Expression) to create a local scope and avoid polluting the global scope
-(function() {
+(function () {
     console.log('Add-on script loaded.');
 
     // Create a template string with the HTML and CSS for the add-on
@@ -16,7 +16,8 @@
     </style>
     <div id="addon-container">
       <!-- HTML elements for the add-on -->
-      <input type="text" id="input-box" placeholder="Type something here">
+      <input type="text" id="user-input" placeholder="Type your message...">
+      <button id="send-button">Send</button>
     </div>
   `;
 
@@ -27,16 +28,60 @@
         // Insert the addonTemplate into the DOM
         const addonContainer = document.createElement('div');
         addonContainer.innerHTML = addonTemplate;
+        document.querySelector('#chat-widget').appendChild(addonContainer);
+        console.log('Add-on template injected into the DOM.');
 
-        const targetElement = document.getElementById('chat-widget');
-        if (targetElement) {
-            targetElement.appendChild(addonContainer);
-            console.log('Add-on template injected into the DOM.');
-        } else {
-            console.log('Target element not found. Add-on not inserted.');
+        // Add an event listener for the send button
+        document.querySelector('#send-button').addEventListener('click', sendMessage);
+    }
+
+    // Define a function to send a message to the Smart Chat API
+    async function sendMessage() {
+        const userInput = document.querySelector('#user-input');
+        const message = userInput.value;
+
+        if (message.trim() === '') {
+            console.log('Empty message. Not sending.');
+            return;
         }
 
-        // Add any additional JavaScript functionality here
+        // Replace with your actual API key and bot ID
+        const apiKey = 'YOUR_API_KEY';
+        const botId = 'YOUR_BOT_ID';
+
+        // Prepare the request headers and body
+        const headers = new Headers({
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${apiKey}`,
+        });
+
+        const body = JSON.stringify({
+            bot_id: botId,
+            message: {
+                content: message,
+            },
+        });
+
+        try {
+            const response = await fetch('https://smart-chat-api.enigneyuber.com/api/v1/messages', {
+                method: 'POST',
+                headers: headers,
+                body: body,
+            });
+
+            const responseData = await response.json();
+
+            if (response.ok) {
+                console.log('Message sent and response received:', responseData);
+            } else {
+                console.error('Error sending message:', responseData);
+            }
+        } catch (error) {
+            console.error('Error sending message:', error);
+        }
+
+        // Clear the input field
+        userInput.value = '';
     }
 
     // Initialize the add-on when the DOM is fully loaded
