@@ -150,14 +150,11 @@
         spinner.style.display = "block";
         setTimeout(() => {
             spinner.style.display = "none";
-            displayProducts([
-                { title: "Product 1", price: "$19.99", image: "https://via.placeholder.com/100" },
-                { title: "Product 2", price: "$29.99", image: "https://via.placeholder.com/100" },
-                { title: "Product 3", price: "$39.99", image: "https://via.placeholder.com/100" },
-                { title: "Product 4", price: "$49.99", image: "https://via.placeholder.com/100" },
-            ]);
+            // Replace the hardcoded product array with an empty array
+            displayProducts([]);
         }, 2000);
     }
+
 
     initAddon();
     requestData();
