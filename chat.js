@@ -113,8 +113,6 @@
         document.querySelector('#chat-widget').appendChild(addonContainer);
         console.log('Add-on template injected into the DOM.');
 
-        // Add an event listener for the send button
-        document.querySelector('#send-button').addEventListener('click', sendMessage);
         // Add event listener for Enter key press
         const userInput = document.querySelector("#user-input");
         userInput.addEventListener("keydown", (event) => {
@@ -123,12 +121,8 @@
                 sendMessage();
             }
         });
-        document.querySelector("#user-input").addEventListener("keydown", (event) => {
-            if (event.key === "Enter") {
-                sendMessage();
-            }
-        });
     }
+
 
     // Declare a variable to store the session_id
     let currentSessionId = null;
