@@ -142,13 +142,98 @@
     }
 
 
-    function sendMessage() {
+    let currentSessionId;
+
+    async function sendMessage() {
         const userInput = document.querySelector("#user-input");
-        const message = userInput.value.trim();
-        if (message.length === 0) return;
+        const message = userInput.value;
+        const spinner = document.querySelector("#spinner");
+
+        if (message.trim() === "") {
+            console.log("Empty message. Not sending.");
+            return;
+        }
+
+        // Show the spinner
+        spinner.style.display = "inline-block";
+
+        // Prepare the request headers
+        const headers = new Headers({
+            "Content-Type": "application/json",
+        });
+
+        const url = "https://smart-chat-api.enigneyuber.com/chat";
+
+        // Include the session_id in the request body if it exists
+        const requestBody = {
+            message: message,
+            merchant_id: "48",
+            anchor_product_ids: "310505275421",
+        };
+        if (currentSessionId) {
+            requestBody.session_id = currentSessionId;
+        }
+
+        try {
+            const response = await fetch(url, {
+                method: "POST",
+                headers: headers,
+                body: JSON.stringify(requestBody),
+            });
+
+            const responseData = await response.json();
+
+            if (response.ok) {
+                console.log("Message sent and response received:", responseData);
+
+                // Save the session_id from the response
+                currentSessionId = responseData.session_id;
+                updatePrompt(responseData.message); // Update the text prompt with the message from the response
+
+                // Check if the response contains product recommendations
+                if (responseData.products && responseData.products.length > 0) {
+                    const carouselTrack = document.querySelector(".carousel-track");
+
+                    // Clear the previous content of the carousel
+                    carouselTrack.innerHTML = "";
+
+                    // Populate the carousel with product recommendations
+                    responseData.products.forEach((product) => {
+                        const productCard = `
+        <div class="product-card">
+            <img src="${product.images[0].url}" alt="${product.name}">
+            <p>${product.name}</p>
+            <button class="add-to-cart" data-product-name="${product.name}">Add to Cart</button>
+        </div>
+    `;
+                        carouselTrack.insertAdjacentHTML("beforeend", productCard);
+                    });
+
+                    // Add event listeners to the "Add to Cart" buttons
+                    const addToCartButtons = document.querySelectorAll(".add-to-cart");
+                    addToCartButtons.forEach(button => {
+                        button.addEventListener("click", (event) => {
+                            const productName = event.target.getAttribute("data-product-name");
+                            console.log(`Add product to cart: ${productName}`);
+                            // Add your "Add to Cart" functionality here
+                        });
+                    });
+
+                }
+            } else {
+                console.error("Error sending message:", responseData);
+            }
+        } catch (error) {
+            console.error("Error sending message:", error);
+        }
+
+        // Hide the spinner after the API call is complete
+        spinner.style.display = "none";
+
+        // Clear the input field
         userInput.value = "";
-        console.log(`Message sent: ${message}`);
     }
+
 
     function requestData() {
         const spinner = document.querySelector("#custom-spinner");
