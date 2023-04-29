@@ -6,20 +6,21 @@
 
     // Create a template string with the HTML and CSS for the add-on
     const addonTemplate = `
-    <style>
-      /* CSS styles for the add-on */
-      #addon-container {
-        font-family: Arial, sans-serif;
-        font-size: 1rem;
-        color: #333;
-      }
-    </style>
-    <div id="addon-container">
-      <!-- HTML elements for the add-on -->
-      <input type="text" id="user-input" placeholder="Type your message...">
-      <button id="send-button">Send</button>
-    </div>
-  `;
+      <style>
+        /* CSS styles for the add-on */
+        #addon-container {
+          font-family: Arial, sans-serif;
+          font-size: 1rem;
+          color: #333;
+        }
+      </style>
+      <div id="addon-container">
+        <!-- HTML elements for the add-on -->
+        <p id="text-prompt">Lets make sure you found what you were looking for.</p>
+        <input type="text" id="user-input" placeholder="Type your message...">
+        <button id="send-button">Send</button>
+      </div>
+    `;
 
     // Define a function to initialize the add-on
     function initAddon() {
@@ -37,6 +38,11 @@
 
     // Declare a variable to store the session_id
     let currentSessionId = null;
+
+    // Add a new function to update the text prompt
+    function updatePrompt(message) {
+        document.querySelector('#text-prompt').textContent = message;
+    }
 
     // Define a function to send a message to the Smart Chat API
     async function sendMessage() {
@@ -67,9 +73,9 @@
 
         try {
             const response = await fetch(url, {
-                method: 'POST', // Change method to POST
+                method: 'POST',
                 headers: headers,
-                body: JSON.stringify(requestBody), // Add the request body
+                body: JSON.stringify(requestBody),
             });
 
             const responseData = await response.json();
@@ -79,6 +85,7 @@
 
                 // Save the session_id from the response
                 currentSessionId = responseData.session_id;
+                updatePrompt(responseData.message); // Update the text prompt with the message from the response
             } else {
                 console.error('Error sending message:', responseData);
             }
@@ -89,9 +96,6 @@
         // Clear the input field
         userInput.value = '';
     }
-
-
-
 
     // Initialize the add-on when the DOM is fully loaded
     if (document.readyState === 'loading') {
