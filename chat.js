@@ -66,11 +66,16 @@
         }
     
         .product-card {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          margin-right: 1rem;
-        }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 1rem;
+  width: 120px; /* Set a fixed width for the product cards */
+}
+
+.add-to-cart {
+  margin-top: auto; /* Align the buttons to the bottom of the product card */
+}
     
         .product-card img {
           max-width: 100px;
