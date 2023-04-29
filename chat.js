@@ -123,6 +123,11 @@
                 sendMessage();
             }
         });
+        document.querySelector("#user-input").addEventListener("keydown", (event) => {
+            if (event.key === "Enter") {
+                sendMessage();
+            }
+        });
     }
 
     // Declare a variable to store the session_id
