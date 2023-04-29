@@ -8,60 +8,71 @@
     const addonTemplate = `
       <style>
         /* CSS styles for the add-on */
-        /* * * * * CHAT ADDON STYLES * * * * */
         #addon-container {
           font-family: Arial, sans-serif;
           font-size: 1rem;
           color: #333;
-        }
-        
-        .carousel-container {
           display: flex;
-          overflow-x: auto;
+          flex-direction: column;
+          width: 100%;
+          height: 100%;
+          box-sizing: border-box;
           padding: 1rem;
-          background-color: #fafafa;
-          border-top: 1px solid #e3e3e3;
-          border-bottom: 1px solid #e3e3e3;
+          background-color: #f0f0f0;
         }
-        
+    
+        #user-input {
+          height: 2rem;
+          padding: 0.25rem;
+        }
+    
+        .carousel {
+          display: flex;
+          overflow: hidden;
+          width: 100%;
+          margin-top: 1rem;
+        }
+    
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #2491C4;
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 1s linear infinite;
+         }
+        .carousel-track {
+          display: flex;
+          transition: transform 0.5s ease;
+        }
+    
         .product-card {
           display: flex;
           flex-direction: column;
           align-items: center;
-          justify-content: center;
-          padding: 0.5rem;
           margin-right: 1rem;
-          width: 100px;
-          background-color: #ffffff;
-          border: 1px solid #e3e3e3;
-          border-radius: 4px;
         }
-        
+    
         .product-card img {
-          width: 100%;
-          height: auto;
-          object-fit: contain;
-          border-radius: 4px;
+          max-width: 100px;
+          max-height: 100px;
+          object-fit: cover;
         }
-        
+    
         .product-card p {
-          margin-top: 0.5rem;
-          color: #232323;
-          font-size: 0.9rem;
-          text-align: center;
+          margin: 0;
+          padding: 0;
         }
-        
-        /* Prevent scrollbar from showing */
-        .carousel-container::-webkit-scrollbar {
-          display: none;
-        }
-        .carousel-container {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
         }
       </style>
       <div id="addon-container">
         <p id="text-prompt">Let's make sure you found what you were looking for.</p>
+        <div id="spinner" class="spinner" style="display: none;"></div>
         <input type="text" id="user-input" placeholder="Type your message...">
         <button id="send-button">Send</button>
         <div id="product-carousel" class="carousel">
@@ -69,8 +80,6 @@
         </div>
       </div>
 `;
-
-
     // Define a function to initialize the add-on
     function initAddon() {
         console.log('Initializing add-on.');
@@ -83,6 +92,14 @@
 
         // Add an event listener for the send button
         document.querySelector('#send-button').addEventListener('click', sendMessage);
+        // Add event listener for Enter key press
+        const userInput = document.querySelector("#user-input");
+        userInput.addEventListener("keydown", (event) => {
+            if (event.key === "Enter") {
+                event.preventDefault(); // Prevent the default action (form submission)
+                sendMessage();
+            }
+        });
     }
 
     // Declare a variable to store the session_id
@@ -118,11 +135,15 @@
     async function sendMessage() {
         const userInput = document.querySelector("#user-input");
         const message = userInput.value;
+        const spinner = document.querySelector("#spinner");
 
         if (message.trim() === "") {
             console.log("Empty message. Not sending.");
             return;
         }
+
+        // Show the spinner
+        spinner.style.display = "inline-block";
 
         // Prepare the request headers
         const headers = new Headers({
@@ -181,6 +202,9 @@
         } catch (error) {
             console.error("Error sending message:", error);
         }
+
+        // Hide the spinner after the API call is complete
+        spinner.style.display = "none";
 
         // Clear the input field
         userInput.value = "";
