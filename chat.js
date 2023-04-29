@@ -1,6 +1,7 @@
 function createInputForm() {
     // Create form elements
     console.log('Creating input form...');
+    alert("wtf");
     const form = document.createElement('form');
     const label = document.createElement('label');
     const input = document.createElement('input');
