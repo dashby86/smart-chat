@@ -52,11 +52,11 @@
         });
 
         // Prepare the URL with query parameters
-        const url = new URL('https://smart-chat-api.enigneyuber.com/api/chat');
+        const url = new URL('https://smart-chat-api.enigneyuber.com/chat');
         url.searchParams.append('message', message);
-        url.searchParams.append('merchant_id', "45");
-        url.searchParams.append('session_id', "6463533");
-        url.searchParams.append('anchor_product_ids', "556776");
+        url.searchParams.append('merchant_id', "48");
+        //url.searchParams.append('session_id', "6463533");
+        url.searchParams.append('anchor_product_ids', "310505275421");
 
         try {
             const response = await fetch(url, {
