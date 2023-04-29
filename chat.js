@@ -47,7 +47,7 @@
         }
         @keyframes spin { /* Fix the animation name to "spin" */
           to {
-            transform: rotate(10deg);
+            transform: rotate(360deg);
           }
         }
         #custom-spinner {
@@ -58,7 +58,7 @@
           transform: translate(-50%, -50%);
           width: 40px;
           height: 40px;
-          background-image: url('https://www.rebuyengine.com/hubfs/www/media_kit/RebuyIconBlue-60x60.svg');
+          background-image: url('https://www.rebuyengine.com/hs-fs/hubfs/www/media_kit/RebuyLogo-60x60.png?width=120&height=120&name=RebuyLogo-60x60.png');
           background-size: cover;
           animation: spin 1s linear infinite; /* Use the correct animation name "spin" */
         }
