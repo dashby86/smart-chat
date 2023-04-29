@@ -147,7 +147,7 @@
     async function sendMessage() {
         const userInput = document.querySelector("#user-input");
         const message = userInput.value;
-        const spinner = document.querySelector("#spinner");
+        const spinner = document.querySelector("#custom-spinner"); // Change this line
 
         if (message.trim() === "") {
             console.log("Empty message. Not sending.");
@@ -200,12 +200,12 @@
                     // Populate the carousel with product recommendations
                     responseData.products.forEach((product) => {
                         const productCard = `
-        <div class="product-card">
-            <img src="${product.images[0].url}" alt="${product.name}">
-            <p>${product.name}</p>
-            <button class="add-to-cart" data-product-name="${product.name}">Add to Cart</button>
-        </div>
-    `;
+    <div class="product-card">
+        <img src="${product.images[0].url}" alt="${product.name}">
+        <p>${product.name}</p>
+        <button class="add-to-cart" data-product-name="${product.name}">Add to Cart</button>
+    </div>
+`;
                         carouselTrack.insertAdjacentHTML("beforeend", productCard);
                     });
 
@@ -233,8 +233,7 @@
         // Clear the input field
         userInput.value = "";
     }
-
-
+    
     function requestData() {
         const spinner = document.querySelector("#custom-spinner");
         spinner.style.display = "block";
