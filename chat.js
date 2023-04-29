@@ -18,7 +18,7 @@
           height: 100%;
           box-sizing: border-box;
           padding: 1rem;
-          background-color: #f0f0f0;
+          background-color: transparent;
         }
     
         #user-input {
