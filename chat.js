@@ -22,9 +22,10 @@
         }
     
         #user-input {
-            height: 2rem;
-            padding: 0.25rem;
-            margin-right: 0.5rem; /* Add some margin to separate the icon from the text box */
+          height: 2rem;
+          padding: 0.25rem;
+          margin-right: 0.5rem; /* Add some margin to separate the icon from the text box */
+          width: 70%; /* Adjust the width as needed */
         }
 
         #icon {
@@ -78,7 +79,6 @@
       <div id="addon-container">
         <p id="text-prompt">Let's make sure you found what you were looking for.</p>
         <div id="spinner" class="spinner" style="display: none;"></div>
-        <input type="text" id="user-input" placeholder="Type your message...">
         <input type="text" id="user-input" placeholder="Type your message...">
         <img id="icon" src="https://www.rebuyengine.com/hubfs/www/media_kit/RebuyIcon-40x40.svg" alt="Your Icon" style="width: 24px; height: 24px;">
         <button id="send-button">Send</button>
