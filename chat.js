@@ -36,12 +36,10 @@
   margin-right: 0.5rem; /* Added this line to add some space between the text prompt and input field */
 }
 #user-input {
-  flex: 1;
+  width: 100%;
   height: 2rem;
   padding: 0.25rem;
   margin-right: 0.5rem;
-  border: none; /* Remove the border */
-  outline: none; /* Remove the outline */
 }
         .carousel {
           display: flex;
