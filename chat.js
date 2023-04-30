@@ -85,13 +85,25 @@
           width: 120px;
         }
         .add-to-cart {
-          margin-top: auto;
+    margin-top: auto;
     color: #ffffff;
     background: #000000;
     border-color: #000000;
     border-width: 0px;
-    border-radius: 0px;
-        }
+    border-radius: 4px; /* Add rounded corners */
+    padding: 8px 12px; /* Add some padding */
+    cursor: pointer; /* Change the cursor to a pointer on hover */
+    text-transform: uppercase; /* Make the text uppercase */
+    font-weight: bold; /* Make the text bold */
+    font-size: 0.85rem; /* Adjust the font size */
+    transition: all 0.3s ease; /* Add a transition for hover effects */
+}
+
+.add-to-cart:hover {
+    background: #444444; /* Change the background color on hover */
+    border-color: #444444; /* Change the border color on hover */
+}
+
         .product-card img {
           max-width: 100px;
           max-height: 100px;
