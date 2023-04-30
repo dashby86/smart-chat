@@ -26,19 +26,18 @@
     }
     .input-wrapper {
       display: flex;
-      flex-direction: column; /* Change this from row to column */
       width: 100%;
       position: relative;
     }
     #text-prompt {
-      width: 100%; /* Change this from auto to 100% */
+      width: 100%;
       margin: 0;
     }
     #user-input {
-      width: 100%; /* Change this from flex-grow to 100% width */
+      width: 100%;
       height: 2rem;
       padding: 0.25rem;
-      margin-top: 0.5rem; /* Add margin-top instead of margin-right */
+      margin-top: 0.5rem;
       outline: none;
     }
     #user-input:focus {
@@ -50,13 +49,13 @@
   </style>
   <div id="addon-container">
     <div class="input-wrapper">
-      <div style="display: flex; align-items: center;">
-        <img src="https://www.rebuyengine.com/hubfs/www/media_kit/RebuyIcon-40x40.svg" alt="Icon" id="input-icon" />
+      <img src="https://www.rebuyengine.com/hubfs/www/media_kit/RebuyIcon-40x40.svg" alt="Icon" id="input-icon" />
+      <div style="display: flex; flex-direction: column; width: 100%;">
         <p id="text-prompt">Let's make sure you found what you were looking for.</p>
-      </div>
-      <div style="position: relative;"> <!-- Add this wrapper div -->
-        <input type="text" id="user-input" placeholder="Type your message..." />
-        <div id="custom-spinner"></div>
+        <div style="position: relative;"> <!-- Add this wrapper div -->
+          <input type="text" id="user-input" placeholder="Type your message..." />
+          <div id="custom-spinner"></div>
+        </div>
       </div>
     </div>
     <div id="product-carousel" class="carousel">
@@ -64,6 +63,7 @@
     </div>
   </div>
 `;
+
 
     // Define a function to initialize the add-on
     function initAddon() {
