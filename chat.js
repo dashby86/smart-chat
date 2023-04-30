@@ -85,7 +85,6 @@
     border-color: #000000;
     border-width: 0px;
     border-radius: 0px;
-}
         }
         .product-card img {
           max-width: 100px;
