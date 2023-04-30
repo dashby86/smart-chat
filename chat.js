@@ -45,23 +45,30 @@
           width: 100%;
           margin-top: 1rem;
         }
-        @keyframes spin { /* Fix the animation name to "spin" */
-          to {
-            transform: rotate(360deg);
-          }
+        @keyframes spinner {
+        0% {
+          transform: translate3d(-50%, -50%, 0) rotate(0deg);
         }
-        #custom-spinner {
-          display: none;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          width: 40px;
-          height: 40px;
-          background-image: url('https://www.rebuyengine.com/hs-fs/hubfs/www/media_kit/RebuyLogo-60x60.png?width=120&height=120&name=RebuyLogo-60x60.png');
-          background-size: cover;
-          animation: spin 1s linear infinite; /* Use the correct animation name "spin" */
+        100% {
+          transform: translate3d(-50%, -50%, 0) rotate(360deg);
         }
+      }
+      .spin::before {
+        animation: 1.5s linear infinite spinner;
+        animation-play-state: inherit;
+        border: solid 5px #cfd0d1;
+        border-bottom-color: #1c87c9;
+        border-radius: 50%;
+        background-image: url('https://www.rebuyengine.com/hubfs/www/media_kit/RebuyIconBlue-60x60.svg');
+        content: "";
+        height: 40px;
+        width: 40px;
+        position: absolute;
+        top: 10%;
+        left: 10%;
+        transform: translate3d(-50%, -50%, 0);
+        will-change: transform;
+      }
         .carousel-track {
           display: flex;
           transition: transform 0.5s ease;
