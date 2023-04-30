@@ -6,123 +6,65 @@
 
     // Create a template string with the HTML and CSS for the add-on
     const addonTemplate = `
-      <style>
-        #addon-container {
-  font-family: Arial, sans-serif;
-  font-size: 1rem;
-  color: #333;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-  padding: 1rem;
-  background-color: transparent;
-}
-#input-icon {
-  width: 40px;
-  height: auto;
-  margin-right: 0.5rem;
-  align-self: flex-start; /* Added this line to align the icon to the top */
-}
-.input-wrapper {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  position: relative;
-  justify-content: space-between; /* Add this line */
-}
-#text-prompt {
-  width: auto; /* Change this from 100% to auto */
-  margin: 0;
-  margin-right: 0.5rem; /* Added this line to add some space between the text prompt and input field */
-}
-#user-input {
-  flex-grow: 1; /* Add this line */
-  height: 2rem;
-  padding: 0.25rem;
-  margin-right: 0.5rem;
-  outline: none; /* Remove the outline */
-}
-
-#user-input:focus {
-  outline: none;
-  border: none; /* Add this line */
-  box-shadow: none; /* Add this line */
-}
-
-        .carousel {
-          display: flex;
-          overflow: hidden;
-          width: 100%;
-          margin-top: 1rem;
-        }
-        @keyframes spinner {
-        0% {
-          transform: translate3d(-50%, -50%, 0) rotate(0deg);
-        }
-        100% {
-          transform: translate3d(-50%, -50%, 0) rotate(360deg);
-        }
-      }
-      #custom-spinner::before {
-  animation: 1.5s linear infinite spinner;
-  animation-play-state: inherit;
-  background-image: url('https://www.rebuyengine.com/hubfs/www/media_kit/RebuyIconBlue-60x60.svg');
-  content: "";
-  height: 60px;
-  width: 60px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate3d(-50%, -50%, 0);
-  will-change: transform;
-}
-
-        .carousel-track {
-          display: flex;
-          transition: transform 0.5s ease;
-        }
-        .product-card {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          margin-right: 1rem;
-          width: 120px;
-        }
-        .add-to-cart {
-          margin-top: auto;
-    color: #ffffff;
-    background: #000000;
-    border-color: #000000;
-    border-width: 0px;
-    border-radius: 0px;
-        }
-        .product-card img {
-          max-width: 100px;
-          max-height: 100px;
-          object-fit: cover;
-        }
-        .product-card p {
-          margin: 0;
-          padding: 0;
-        }
-      </style>
-      <div id="addon-container">
-  <div class="input-wrapper">
-    <img src="https://www.rebuyengine.com/hubfs/www/media_kit/RebuyIcon-40x40.svg" alt="Icon" id="input-icon" />
-    <div>
-      <p id="text-prompt">Let's make sure you found what you were looking for.</p>
-      <input type="text" id="user-input" placeholder="Type your message..." />
+  <style>
+    #addon-container {
+      font-family: Arial, sans-serif;
+      font-size: 1rem;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      padding: 1rem;
+      background-color: transparent;
+    }
+    #input-icon {
+      width: 40px;
+      height: auto;
+      margin-right: 0.5rem;
+    }
+    .input-wrapper {
+      display: flex;
+      flex-direction: column; /* Change this from row to column */
+      width: 100%;
+      position: relative;
+    }
+    #text-prompt {
+      width: 100%; /* Change this from auto to 100% */
+      margin: 0;
+    }
+    #user-input {
+      width: 100%; /* Change this from flex-grow to 100% width */
+      height: 2rem;
+      padding: 0.25rem;
+      margin-top: 0.5rem; /* Add margin-top instead of margin-right */
+      outline: none;
+    }
+    #user-input:focus {
+      outline: none;
+      border: none;
+      box-shadow: none;
+    }
+    /* Rest of the styles */
+  </style>
+  <div id="addon-container">
+    <div class="input-wrapper">
+      <div style="display: flex; align-items: center;">
+        <img src="https://www.rebuyengine.com/hubfs/www/media_kit/RebuyIcon-40x40.svg" alt="Icon" id="input-icon" />
+        <p id="text-prompt">Let's make sure you found what you were looking for.</p>
+      </div>
+      <div style="position: relative;"> <!-- Add this wrapper div -->
+        <input type="text" id="user-input" placeholder="Type your message..." />
+        <div id="custom-spinner"></div>
+      </div>
     </div>
-    <div id="custom-spinner"></div>
+    <div id="product-carousel" class="carousel">
+      <div class="carousel-track"></div>
+    </div>
   </div>
-  <div id="product-carousel" class="carousel">
-    <div class="carousel-track"></div>
-  </div>
-</div>
+`;
 
-    `;
     // Define a function to initialize the add-on
     function initAddon() {
         const addonContainer = document.createElement('div');
