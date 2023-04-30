@@ -58,8 +58,8 @@
   animation-play-state: inherit;
   background-image: url('https://www.rebuyengine.com/hubfs/www/media_kit/RebuyIconBlue-60x60.svg');
   content: "";
-  height: 61px;
-  width: 61px;
+  height: 60px;
+  width: 60px;
   position: absolute;
   top: 50%;
   left: 50%;
