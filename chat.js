@@ -80,6 +80,12 @@
         }
         .add-to-cart {
           margin-top: auto;
+    color: #ffffff;
+    background: #000000;
+    border-color: #000000;
+    border-width: 0px;
+    border-radius: 0px;
+}
         }
         .product-card img {
           max-width: 100px;
