@@ -56,13 +56,10 @@
       #custom-spinner::before {
   animation: 1.5s linear infinite spinner;
   animation-play-state: inherit;
-  border: solid 5px #cfd0d1;
-  border-bottom-color: #1c87c9;
-  border-radius: 50%;
   background-image: url('https://www.rebuyengine.com/hubfs/www/media_kit/RebuyIconBlue-60x60.svg');
   content: "";
-  height: 40px;
-  width: 40px;
+  height: 61px;
+  width: 61px;
   position: absolute;
   top: 50%;
   left: 50%;
