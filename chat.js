@@ -19,33 +19,38 @@
   padding: 1rem;
   background-color: transparent;
 }
-.input-wrapper {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  position: relative;
-}
 #input-icon {
   width: 40px;
   height: auto;
   margin-right: 0.5rem;
   align-self: flex-start; /* Added this line to align the icon to the top */
 }
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  justify-content: space-between; /* Add this line */
+}
 #text-prompt {
-width: 100%;
+  width: auto; /* Change this from 100% to auto */
   margin: 0;
   margin-right: 0.5rem; /* Added this line to add some space between the text prompt and input field */
 }
 #user-input {
-  width: 100%;
+  flex-grow: 1; /* Add this line */
   height: 2rem;
   padding: 0.25rem;
   margin-right: 0.5rem;
   outline: none; /* Remove the outline */
 }
+
 #user-input:focus {
   outline: none;
+  border: none; /* Add this line */
+  box-shadow: none; /* Add this line */
 }
+
         .carousel {
           display: flex;
           overflow: hidden;
