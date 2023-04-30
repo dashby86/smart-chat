@@ -45,6 +45,62 @@
       border: none;
       box-shadow: none;
     }
+    .carousel {
+          display: flex;
+          overflow: hidden;
+          width: 100%;
+          margin-top: 1rem;
+        }
+        @keyframes spinner {
+        0% {
+          transform: translate3d(-50%, -50%, 0) rotate(0deg);
+        }
+        100% {
+          transform: translate3d(-50%, -50%, 0) rotate(360deg);
+        }
+      }
+      #custom-spinner::before {
+  animation: 1.5s linear infinite spinner;
+  animation-play-state: inherit;
+  background-image: url('https://www.rebuyengine.com/hubfs/www/media_kit/RebuyIconBlue-60x60.svg');
+  content: "";
+  height: 60px;
+  width: 60px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  will-change: transform;
+}
+
+        .carousel-track {
+          display: flex;
+          transition: transform 0.5s ease;
+        }
+        .product-card {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-right: 1rem;
+          width: 120px;
+        }
+        .add-to-cart {
+          margin-top: auto;
+    color: #ffffff;
+    background: #000000;
+    border-color: #000000;
+    border-width: 0px;
+    border-radius: 0px;
+        }
+        .product-card img {
+          max-width: 100px;
+          max-height: 100px;
+          object-fit: cover;
+        }
+        .product-card p {
+          margin: 0;
+          padding: 0;
+        }
     /* Rest of the styles */
   </style>
   <div id="addon-container">
