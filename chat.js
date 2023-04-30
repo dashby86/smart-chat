@@ -32,6 +32,7 @@
   align-self: flex-start; /* Added this line to align the icon to the top */
 }
 #text-prompt {
+width: 100%;
   margin: 0;
   margin-right: 0.5rem; /* Added this line to add some space between the text prompt and input field */
 }
