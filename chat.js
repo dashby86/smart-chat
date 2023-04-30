@@ -40,6 +40,7 @@
   height: 2rem;
   padding: 0.25rem;
   margin-right: 0.5rem;
+  outline: none; /* Remove the outline */
 }
         .carousel {
           display: flex;
