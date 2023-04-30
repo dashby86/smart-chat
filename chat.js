@@ -35,10 +35,15 @@
     position: relative; /* Add this line */
   }
         #input-icon {
-          width: 24px;
-          height: 24px;
-          margin-right: 0.5rem;
-        }
+  width: 24px;
+  height: 24px;
+  margin-right: 0.5rem;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
         .carousel {
           display: flex;
           overflow: hidden;
