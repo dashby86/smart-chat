@@ -43,6 +43,9 @@ width: 100%;
   margin-right: 0.5rem;
   outline: none; /* Remove the outline */
 }
+#user-input:focus {
+  outline: none;
+}
         .carousel {
           display: flex;
           overflow: hidden;
