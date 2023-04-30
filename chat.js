@@ -8,40 +8,38 @@
     const addonTemplate = `
       <style>
         #addon-container {
-          font-family: Arial, sans-serif;
-          font-size: 1rem;
-          color: #333;
-          display: flex;
-          flex-direction: column;
-          width: 100%;
-          height: 100%;
-          box-sizing: border-box;
-          padding: 1rem;
-          background-color: transparent;
-        }
-        #user-input {
-          height: 2rem;
-          padding: 0.25rem;
-          margin-right: 0.5rem;
-          width: 100%;
-        }
-        #icon {
-          vertical-align: middle;
-        }
-        .input-wrapper {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    position: relative; /* Add this line */
-  }
-        #input-icon {
-  width: 24px;
-  height: 24px;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 1rem;
+  background-color: transparent;
+}
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+#input-icon {
+  width: 40px;
+  height: auto;
   margin-right: 0.5rem;
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  align-self: flex-start; /* Added this line to align the icon to the top */
+}
+#text-prompt {
+  margin: 0;
+  margin-right: 0.5rem; /* Added this line to add some space between the text prompt and input field */
+}
+#user-input {
+  height: 2rem;
+  padding: 0.25rem;
+  margin: 0;
+  flex: 1; /* Added this line to make the input field take up the remaining space */
 }
 
         .carousel {
@@ -102,16 +100,19 @@
         }
       </style>
       <div id="addon-container">
-  <p id="text-prompt">Let's make sure you found what you were looking for.</p>
   <div class="input-wrapper">
     <img src="https://www.rebuyengine.com/hubfs/www/media_kit/RebuyIcon-40x40.svg" alt="Icon" id="input-icon" />
-    <input type="text" id="user-input" placeholder="Type your message..." />
-    <div id="custom-spinner"></div> <!-- Move the spinner inside the input-wrapper div -->
+    <div>
+      <p id="text-prompt">Let's make sure you found what you were looking for.</p>
+      <input type="text" id="user-input" placeholder="Type your message..." />
+    </div>
+    <div id="custom-spinner"></div>
   </div>
   <div id="product-carousel" class="carousel">
     <div class="carousel-track"></div>
   </div>
 </div>
+
     `;
     // Define a function to initialize the add-on
     function initAddon() {
