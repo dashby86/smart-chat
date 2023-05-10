@@ -4,10 +4,12 @@
 (function () {
     console.log('Add-on script loaded.');
 
-    function getRebuyShopId(rebuy) {
+    function getRebuyShopId(rebuy, shopify) {
         const element = window[rebuy];
+        const shopifyElement = window[shopify];
 
         if (element && element.shop && element.shop.id) {
+            console.log(shopifyElement);
             return element.shop.id;
         }
     }
@@ -211,7 +213,7 @@
             return;
         }
 
-        const shopId = getRebuyShopId('Rebuy');
+        const shopId = getRebuyShopId('Rebuy', 'Shopify');
 
         // Show the spinner
         spinner.style.display = "inline-block";
