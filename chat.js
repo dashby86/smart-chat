@@ -4,33 +4,16 @@
 (function () {
     console.log('Add-on script loaded.');
 
-    function debugWindowElement(Rebuy) {
-        const element = window[Rebuy];
-
-        if (element) {
-            console.log(`Content of the "${Rebuy}" window element:`);
-            console.log(element);
-        } else {
-            console.error(`Window element with the namespace "${Rebuy}" not found.`);
-        }
-    }
-
     function getRebuyShopId(rebuy) {
         const element = window[rebuy];
 
         if (element && element.shop && element.shop.id) {
-            console.log(`Shop ID of the "${rebuy}" window element:`, element.shop.id);
             return element.shop.id;
-        } else {
-            console.error(`Shop ID not found in the "${rebuy}" window element.`);
         }
     }
 
     // Call getRebuyShopId function with 'Rebuy' as the argument
-    const shopId = getRebuyShopId('Rebuy');
-
-    console.log(`Shop ID: "${shopId}"`);
-    debugWindowElement('Rebuy');
+    //const shopId = getRebuyShopId('Rebuy');
 
     // Create a template string with the HTML and CSS for the add-on
     const addonTemplate = `
@@ -62,17 +45,23 @@
       margin: 0;
     }
     #user-input {
-      width: 100%;
-      height: 2rem;
-      padding: 0.25rem;
-      margin-top: 0.5rem;
-      outline: none;
-    }
-    #user-input:focus {
-      outline: none;
-      border: none;
-      box-shadow: none;
-    }
+  width: 100%;
+  height: 2rem;
+  padding: 0.25rem;
+  margin-top: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  outline: none;
+}
+
+#user-input:focus {
+  box-shadow: 0 0 0 2px rgba(0, 0, 255, 0.2);
+  outline: none;
+  border: none;
+}
+
     .carousel {
           display: flex;
           overflow: hidden;
@@ -221,6 +210,8 @@
             console.log("Empty message. Not sending.");
             return;
         }
+
+        const shopId = getRebuyShopId('Rebuy');
 
         // Show the spinner
         spinner.style.display = "inline-block";
