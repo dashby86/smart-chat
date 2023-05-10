@@ -203,6 +203,26 @@
 
     let currentSessionId;
 
+    let formData = {
+        'items': [{
+            'id': 8218269384981,
+            'quantity': 2
+        }]
+    };
+    fetch(window.Shopify.routes.root + 'cart/add.js', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+    })
+        .then(response => {
+            return response.json();
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+
     async function sendMessage() {
         const userInput = document.querySelector("#user-input");
         const message = userInput.value;
@@ -214,7 +234,7 @@
         }
 
         const shopId = getRebuyShopId('Rebuy', 'Shopify');
-
+        
         // Show the spinner
         spinner.style.display = "inline-block";
 
