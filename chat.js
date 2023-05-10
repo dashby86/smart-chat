@@ -57,9 +57,19 @@
 }
 
 #user-input:focus {
-  box-shadow: 0 0 0 2px rgba(0, 0, 255, 0.2);
   outline: none;
   border: none;
+  box-shadow: none;
+  animation: input-border 0.5s ease-in-out forwards;
+}
+
+@keyframes input-border {
+  from {
+    border-bottom: 2px solid #ddd;
+  }
+  to {
+    border-bottom: 2px solid #333;
+  }
 }
 
     .carousel {
