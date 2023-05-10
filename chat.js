@@ -57,19 +57,9 @@
 }
 
 #user-input:focus {
+  box-shadow: 0 0 0 2px rgba(0, 0, 255, 0.2);
   outline: none;
   border: none;
-  box-shadow: none;
-  animation: input-border 0.5s ease-in-out forwards;
-}
-
-@keyframes input-border {
-  from {
-    border-bottom: 2px solid #ddd;
-  }
-  to {
-    border-bottom: 2px solid #333;
-  }
 }
 
     .carousel {
@@ -236,8 +226,8 @@
         // Include the session_id in the request body if it exists
         const requestBody = {
             message: message,
-            merchant_id: "48",
-            anchor_product_ids: "310505275421",
+            merchant_id: shopId,
+            anchor_product_ids: "",
         };
         if (currentSessionId) {
             requestBody.session_id = currentSessionId;
