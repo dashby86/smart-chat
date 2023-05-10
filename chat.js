@@ -4,14 +4,14 @@
 (function () {
     console.log('Add-on script loaded.');
 
-    function debugWindowElement(namespace) {
-        const element = window[namespace];
+    function debugWindowElement(Rebuy) {
+        const element = window[Rebuy];
 
         if (element) {
-            console.log(`Content of the "${namespace}" window element:`);
+            console.log(`Content of the "${Rebuy}" window element:`);
             console.log(element);
         } else {
-            console.error(`Window element with the namespace "${namespace}" not found.`);
+            console.error(`Window element with the namespace "${Rebuy}" not found.`);
         }
     }
 
