@@ -299,7 +299,7 @@
                             const variantId = event.target.getAttribute("data-variant-id");
                             const quantity = 1; // You can change the quantity as needed
 
-                            console.log(`Add product to cart: Variant ID ${variantId}`);
+                            console.log(`Add product to cart: Variant ID ${variantId}, Quantity ${quantity}`);
 
                             // Call the addProductToCart function with the variant ID and quantity
                             try {
@@ -310,7 +310,6 @@
                             }
                         });
                     });
-
 
                 }
             } else {
@@ -344,12 +343,13 @@
         });
 
         if (!response.ok) {
-            throw new Error("Error adding product to cart");
+            throw new Error(`Error adding product to cart: ${response.status} ${response.statusText}`);
         }
 
         const jsonResponse = await response.json();
         return jsonResponse;
     }
+
 
     initAddon();
 })();
