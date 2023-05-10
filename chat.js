@@ -15,6 +15,21 @@
         }
     }
 
+    function getRebuyShopId(rebuy) {
+        const element = window[rebuy];
+
+        if (element && element.shop && element.shop.id) {
+            console.log(`Shop ID of the "${rebuy}" window element:`, element.shop.id);
+            return element.shop.id;
+        } else {
+            console.error(`Shop ID not found in the "${rebuy}" window element.`);
+        }
+    }
+
+    // Call getRebuyShopId function with 'Rebuy' as the argument
+    const shopId = getRebuyShopId('Rebuy');
+
+    console.log(`Shop ID: "${shopId}"`);
     debugWindowElement('Rebuy');
 
     // Create a template string with the HTML and CSS for the add-on
