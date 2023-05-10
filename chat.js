@@ -234,7 +234,7 @@
         }
 
         const shopId = getRebuyShopId('Rebuy', 'Shopify');
-        
+
         // Show the spinner
         spinner.style.display = "inline-block";
 
@@ -281,24 +281,36 @@
                     // Populate the carousel with product recommendations
                     responseData.products.forEach((product) => {
                         const productCard = `
-    <div class="product-card">
-        <img src="${product.images[0].url}" alt="${product.name}">
-        <p>${product.name}</p>
-        <button class="add-to-cart" data-product-name="${product.name}">Add to Cart</button>
-    </div>
-`;
+        <div class="product-card">
+            <img src="${product.images[0].url}" alt="${product.name}">
+            <p>${product.name}</p>
+            <button class="add-to-cart" data-variant-id="${product.variants[0].id}">Add to Cart</button>
+        </div>
+    `;
                         carouselTrack.insertAdjacentHTML("beforeend", productCard);
                     });
 
+
+                    // Add event listeners to the "Add to Cart" buttons
                     // Add event listeners to the "Add to Cart" buttons
                     const addToCartButtons = document.querySelectorAll(".add-to-cart");
                     addToCartButtons.forEach(button => {
-                        button.addEventListener("click", (event) => {
-                            const productName = event.target.getAttribute("data-product-name");
-                            console.log(`Add product to cart: ${productName}`);
-                            // Add your "Add to Cart" functionality here
+                        button.addEventListener("click", async (event) => {
+                            const variantId = event.target.getAttribute("data-variant-id");
+                            const quantity = 1; // You can change the quantity as needed
+
+                            console.log(`Add product to cart: Variant ID ${variantId}`);
+
+                            // Call the addProductToCart function with the variant ID and quantity
+                            try {
+                                await addProductToCart(variantId, quantity);
+                                console.log("Product added to cart successfully");
+                            } catch (error) {
+                                console.error("Error adding product to cart:", error);
+                            }
                         });
                     });
+
 
                 }
             } else {
@@ -315,17 +327,29 @@
         userInput.value = "";
     }
 
-    function requestData() {
-        const spinner = document.querySelector("#custom-spinner");
-        spinner.style.display = "block";
-        setTimeout(() => {
-            spinner.style.display = "none";
-            // Replace the hardcoded product array with an empty array
-            displayProducts([]);
-        }, 2000);
+    async function addProductToCart(variantId, quantity) {
+        const formData = {
+            items: [{
+                id: variantId,
+                quantity: quantity,
+            }],
+        };
+
+        const response = await fetch(window.Shopify.routes.root + 'cart/add.js', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData),
+        });
+
+        if (!response.ok) {
+            throw new Error("Error adding product to cart");
+        }
+
+        const jsonResponse = await response.json();
+        return jsonResponse;
     }
 
-
     initAddon();
-   // requestData();
 })();
