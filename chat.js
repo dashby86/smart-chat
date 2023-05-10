@@ -15,6 +15,8 @@
         }
     }
 
+    debugWindowElement('Rebuy');
+
     // Create a template string with the HTML and CSS for the add-on
     const addonTemplate = `
   <style>
