@@ -4,6 +4,17 @@
 (function () {
     console.log('Add-on script loaded.');
 
+    function debugWindowElement(namespace) {
+        const element = window[namespace];
+
+        if (element) {
+            console.log(`Content of the "${namespace}" window element:`);
+            console.log(element);
+        } else {
+            console.error(`Window element with the namespace "${namespace}" not found.`);
+        }
+    }
+
     // Create a template string with the HTML and CSS for the add-on
     const addonTemplate = `
   <style>
