@@ -62,17 +62,16 @@
   position: absolute;
   left: 0;
 }
-
 #text-prompt, #user-input {
   margin-left: 50px; /* Change this value based on the width of the logo */
 }
 
 #text-prompt {
-  width: 100%;
+  width: calc(100% - 50px); /* Subtract the margin from the width */
 }
 
 #user-input {
-  width: 100%;
+  width: calc(100% - 50px); /* Subtract the margin from the width */
   height: 2rem;
   padding: 0.25rem;
   margin-top: 0.5rem;
