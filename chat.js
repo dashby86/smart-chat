@@ -80,13 +80,11 @@
       background-color: transparent;
     }
     .input-wrapper {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    width: 100%;
-    position: relative;
-    justify-items: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 
 #input-icon {
     grid-column: 1;
