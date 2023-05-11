@@ -338,7 +338,7 @@
         const userInput = document.querySelector("#user-input");
         const message = userInput.value;
         const logo = document.querySelector("#input-icon");
-        const typingIndicator = document.querySelector("#ellipses");
+        const ellipses = document.querySelector("#ellipses");
 
         if (message.trim() === "") {
             return;
@@ -348,7 +348,7 @@
 
         // Show the spinner
         logo.style.animation = "spin 2s linear infinite";
-        typingIndicator.classList.add("visible");
+        ellipses.classList.add("visible");
 
         // Prepare the request headers
         const headers = new Headers({
@@ -428,18 +428,18 @@
                 }
             } else {
                 logo.style.animation = "";
-                typingIndicator.classList.remove("visible");
+                ellipses.classList.remove("visible");
                 console.error("Error sending message:", responseData);
             }
         } catch (error) {
             logo.style.animation = "";
-            typingIndicator.classList.remove("visible");
+            ellipses.classList.remove("visible");
             console.error("Error sending message:", error);
         }
 
         logo.style.animation = "";
         userInput.classList.remove("loading");
-        typingIndicator.classList.remove("visible");
+        ellipses.classList.remove("visible");
 
         userInput.value = "";
     }
