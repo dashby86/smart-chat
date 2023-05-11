@@ -321,7 +321,7 @@
         // Include the session_id in the request body if it exists
         const requestBody = {
             message: message,
-            merchant_id: shopId,
+            merchant_id: 48,
             anchor_product_ids: "",
         };
         if (currentSessionId) {
