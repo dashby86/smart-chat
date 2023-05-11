@@ -199,6 +199,16 @@
     transition: all 0.3s ease; /* Add a transition for hover effects */
 }
 
+.splide-collapse-button {
+  text-align: center;
+  background-color: #ccc;
+  color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+
 .add-to-cart:hover {
     background: #444444; /* Change the background color on hover */
     border-color: #444444; /* Change the border color on hover */
@@ -224,6 +234,7 @@
           <input type="text" id="user-input" placeholder="Type your message..." />
           <div id="custom-spinner"></div>
         </div>
+        <button class="splide-collapse-button">Collapse</button>
       </div>
     </div>
     <div id="product-carousel" class="carousel splide splide-collapse">
