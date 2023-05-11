@@ -13,20 +13,40 @@
     // Create a template string with the HTML and CSS for the add-on
     const addonTemplate = `
   <style>
-    .carousel-arrow {
-  cursor: pointer;
-  display: none; /* Initially hide the arrows */
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 100%;
-  color: #333;
-  font-size: 1.5rem;
-  transition: color 0.3s ease;
+    .carousel {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    width: 100%;
+    margin-top: 1rem;
+}
+.carousel-wrapper {
+    display: flex;
+    align-items: center;
+}
+.carousel-arrow {
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 100%;
+    color: #333;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+    margin: 0 10px; /* Add margin to the left and right of the arrows */
 }
 .carousel-arrow:hover {
-  color: #666;
+    color: #666;
 }
+.carousel-track-container {
+    overflow: hidden;
+}
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
 .carousel-arrow-left {
   margin-right: 10px;
 }
@@ -60,29 +80,22 @@
       margin: 0;
     }
     #user-input {
-  width: 100%;
-  height: 2rem;
-  padding: 0.25rem;
-  margin-top: 0.5rem;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  font-family: Arial, sans-serif;
-  font-size: 1rem;
-  outline: none;
-}
+      width: 100%;
+      height: 2rem;
+      padding: 0.25rem;
+      margin-top: 0.5rem;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      font-family: Arial, sans-serif;
+      font-size: 1rem;
+      outline: none;
+    }
 
-#user-input:focus {
-  box-shadow: 0 0 0 2px rgba(0, 0, 255, 0.2);
-  outline: none;
-  border: none;
-}
-
-    .carousel {
-          display: flex;
-          overflow: hidden;
-          width: 100%;
-          margin-top: 1rem;
-        }
+    #user-input:focus {
+      box-shadow: 0 0 0 2px rgba(0, 0, 255, 0.2);
+      outline: none;
+      border: none;
+    }
         @keyframes spinner {
         0% {
           transform: translate3d(-50%, -50%, 0) rotate(0deg);
@@ -104,11 +117,6 @@
   transform: translate3d(-50%, -50%, 0);
   will-change: transform;
 }
-
-        .carousel-track {
-          display: flex;
-          transition: transform 0.5s ease;
-        }
         .product-card {
           display: flex;
           flex-direction: column;
@@ -162,17 +170,18 @@
       <div class="carousel-track"></div>
     </div>
     <div id="product-carousel" class="carousel">
-      <!-- Add left arrow -->
-      <div class="carousel-arrow carousel-arrow-left">
-        <span>&lt;</span>
-      </div>
-      <div class="carousel-track-container">
-        <div class="carousel-track"></div>
-      </div>
-      <!-- Add right arrow -->
-      <div class="carousel-arrow carousel-arrow-right">
-        <span>&gt;</span>
-      </div>
+    <div class="carousel-wrapper">
+        <!-- Add left arrow -->
+        <div class="carousel-arrow carousel-arrow-left">
+            <span>&lt;</span>
+        </div>
+        <div class="carousel-track-container">
+            <div class="carousel-track"></div>
+        </div>
+        <!-- Add right arrow -->
+        <div class="carousel-arrow carousel-arrow-right">
+            <span>&gt;</span>
+        </div>
     </div>
   </div>
 `;
