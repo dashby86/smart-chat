@@ -269,8 +269,6 @@
                         carouselTrack.insertAdjacentHTML("beforeend", productCard);
                     });
 
-
-                    // Add event listeners to the "Add to Cart" buttons
                     // Add event listeners to the "Add to Cart" buttons
                     const addToCartButtons = document.querySelectorAll(".add-to-cart");
                     addToCartButtons.forEach(button => {
