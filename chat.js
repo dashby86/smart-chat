@@ -217,11 +217,11 @@
       <img src="https://www.rebuyengine.com/hubfs/www/media_kit/RebuyIcon-40x40.svg" alt="Icon" id="input-icon" />
       <div style="display: flex; flex-direction: column; width: 100%;">
         <p id="text-prompt">Let's make sure you found what you were looking for.</p>
-      </div>
-      <div style="position: relative;"> <!-- Add this wrapper div -->
+        <div style="position: relative;"> <!-- Add this wrapper div -->
           <input type="text" id="user-input" placeholder="Type your message..." />
-          <div id="custom-spinner"></div>
         </div>
+      </div>
+      <div id="custom-spinner"></div>
     </div>
     <div id="product-carousel" class="carousel">
       <div class="splide__track">
