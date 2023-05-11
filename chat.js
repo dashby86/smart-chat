@@ -226,11 +226,12 @@
         </div>
       </div>
     </div>
-    <div id="product-carousel" class="carousel">
+    <div id="product-carousel" class="carousel splide splide-collapse">
       <div class="splide__track">
         <ul class="splide__list">
         </ul>
       </div>
+      <button class="splide-collapse-button">Collapse</button>
     </div>
   </div>
 `;
@@ -380,6 +381,9 @@
             items: [{
                 id: variantId,
                 quantity: quantity,
+                line_item_properties: {
+                    'custom_property_1': 'value1'
+                },
             }],
         };
 
