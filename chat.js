@@ -23,8 +23,10 @@
     margin-top: 1rem;
 }
 .carousel-wrapper {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  max-width: 100%; /* Ensure the carousel wrapper doesn't exceed the available space */
+  overflow: hidden; /* Add this to hide any content that overflows the wrapper */
 }
 .carousel-arrow {
     cursor: pointer;
@@ -38,11 +40,13 @@
     transition: color 0.3s ease;
     margin: 0 10px; /* Add margin to the left and right of the arrows */
 }
+
 .carousel-arrow:hover {
     color: #666;
 }
 .carousel-track-container {
-    overflow: hidden;
+  overflow: hidden;
+  width: calc(100% - 84px); /* Subtract the total width of the arrows (40px each) from the available space */
 }
 .carousel-track {
     display: flex;
