@@ -220,8 +220,8 @@
         <div style="position: relative;"> <!-- Add this wrapper div -->
           <input type="text" id="user-input" placeholder="Type your message..." />
         </div>
+        <div id="custom-spinner"></div>
       </div>
-      <div id="custom-spinner"></div>
     </div>
     <div id="product-carousel" class="carousel">
       <div class="splide__track">
