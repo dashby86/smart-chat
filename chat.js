@@ -178,19 +178,9 @@
         <div class="carousel-arrow carousel-arrow-left">
             <span>&lt;</span>
         </div>
-        <div class="carousel-track-container">
-            <div class="carousel-track"></div>
-        </div>
         <!-- Add right arrow -->
         <div class="carousel-arrow carousel-arrow-right">
             <span>&gt;</span>
-        </div>
-    </div>
-    <div class="splide">
-        <div class="splide__track">
-            <ul class="splide__list" id="product-carousel">
-                <!-- Carousel items will be inserted here -->
-            </ul>
         </div>
     </div>
   </div>
@@ -221,12 +211,13 @@
     }
 
     function initializeCarousel() {
-        new Splide('.splide', {
+        new Splide('.carousel', {
             type: 'loop',
             perPage: 3,
             autoplay: true,
         }).mount();
     }
+
 
 
     let currentSessionId;
@@ -314,16 +305,7 @@
                             }
                         });
                     });
-                    const leftArrow = document.querySelector(".carousel-arrow-left");
-                    const rightArrow = document.querySelector(".carousel-arrow-right");
-                    leftArrow.style.display = "block";
-                    rightArrow.style.display = "block";
-                } else {
-                    // Hide the arrows if there are no products
-                    const leftArrow = document.querySelector(".carousel-arrow-left");
-                    const rightArrow = document.querySelector(".carousel-arrow-right");
-                    leftArrow.style.display = "none";
-                    rightArrow.style.display = "none";
+                    initializeCarousel();
                 }
             } else {
                 console.error("Error sending message:", responseData);
