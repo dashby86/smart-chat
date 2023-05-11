@@ -44,7 +44,7 @@
 
 .splide__pagination {
     position: absolute;
-    bottom: -20px;  /* adjust this value as per your requirement */
+    bottom: -20px; 
     left: 50%;
     transform: translateX(-50%);
 }
@@ -85,7 +85,7 @@
     width: 100%;
     position: relative;
     justify-items: center;
-    align-items: center;  /* Centers the items vertically */
+    align-items: center;
 }
 
 #input-icon {
@@ -98,16 +98,18 @@
       grid-column: 2;
     }
     #user-input {
-      width: 100%;
-      grid-column: 2;
-      height: 2rem;
-      padding: 0.25rem;
-      margin-top: 0.5rem;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-      font-family: Arial, sans-serif;
-      font-size: 1rem;
-      outline: none;
+        width: 100%;
+        grid-column: 2;
+        height: 2rem;
+        padding: 0.25rem;
+        margin-top: 0.5rem;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        font-family: Arial, sans-serif;
+        font-size: 1rem;
+        outline: none;
+        display: flex;
+        justify-content: center;
     }
     
     .carousel-wrapper {
@@ -226,7 +228,6 @@
     <div id="product-carousel" class="carousel">
       <div class="splide__track">
         <ul class="splide__list">
-          <!-- The product cards will be appended here -->
         </ul>
       </div>
     </div>
@@ -272,7 +273,7 @@
     async function sendMessage() {
         const userInput = document.querySelector("#user-input");
         const message = userInput.value;
-        const spinner = document.querySelector("#custom-spinner"); // Change this line
+        const spinner = document.querySelector("#custom-spinner");
 
         if (message.trim() === "") {
             return;
@@ -332,15 +333,11 @@
                         document.querySelector("#product-carousel .splide__list").insertAdjacentHTML("beforeend", productCard);
                     });
 
-
-                    // Add event listeners to the "Add to Cart" buttons
                     const addToCartButtons = document.querySelectorAll(".add-to-cart");
                     addToCartButtons.forEach(button => {
                         button.addEventListener("click", async (event) => {
                             const variantId = event.target.getAttribute("data-variant-id");
-                            const quantity = 1; // You can change the quantity as needed
-
-                            // Call the addProductToCart function with the variant ID and quantity
+                            const quantity = 1;
                             try {
                                 await addProductToCart(variantId, quantity);
                             } catch (error) {
@@ -357,10 +354,8 @@
             console.error("Error sending message:", error);
         }
 
-        // Hide the spinner after the API call is complete
         spinner.style.display = "none";
 
-        // Clear the input field
         userInput.value = "";
     }
 
