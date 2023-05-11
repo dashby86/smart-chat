@@ -85,9 +85,12 @@
         align-items: center;
     }
 
-    #input-icon {
-        display: inline-block;
-    }
+#input-icon {
+  position: relative;
+  top: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
 
     #text-prompt {
         width: 100%;
@@ -108,10 +111,10 @@
     }
     
     .carousel-wrapper {
-  display: flex;
-  align-items: center;
-  position: relative;
-}
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
 
 .carousel-arrow {
   position: absolute;
