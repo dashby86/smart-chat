@@ -2,8 +2,6 @@
 
 // Define an IIFE (Immediately Invoked Function Expression) to create a local scope and avoid polluting the global scope
 (function () {
-    console.log('Add-on script loaded.');
-
     function getRebuyShopId(rebuy, shopify) {
         const element = window[rebuy];
         const shopifyElement = window[shopify];
@@ -12,9 +10,6 @@
             return element.shop.id;
         }
     }
-
-    // Call getRebuyShopId function with 'Rebuy' as the argument
-    //const shopId = getRebuyShopId('Rebuy');
 
     // Create a template string with the HTML and CSS for the add-on
     const addonTemplate = `
@@ -192,7 +187,7 @@
         <img src="${product.image}" alt="${product.title}" />
         <p>${product.title}</p>
         <p>${product.price}</p>
-        <button class="add-to-cart" data-variant-id="${product.variants[0].variant_id}">Add to cart</button>
+        <button class=".rebuy-button" data-variant-id="${product.variants[0].variant_id}">Add to cart</button>
     `;
                 carouselTrack.appendChild(productCard);
             });
@@ -209,7 +204,6 @@
         const spinner = document.querySelector("#custom-spinner"); // Change this line
 
         if (message.trim() === "") {
-            console.log("Empty message. Not sending.");
             return;
         }
 
@@ -245,8 +239,6 @@
             const responseData = await response.json();
 
             if (response.ok) {
-                console.log("Message sent and response received:", responseData);
-
                 // Save the session_id from the response
                 currentSessionId = responseData.session_id;
                 updatePrompt(responseData.message); // Update the text prompt with the message from the response
@@ -277,12 +269,9 @@
                             const variantId = event.target.getAttribute("data-variant-id");
                             const quantity = 1; // You can change the quantity as needed
 
-                            console.log(`Add product to cart: Variant ID ${variantId}, Quantity ${quantity}`);
-
                             // Call the addProductToCart function with the variant ID and quantity
                             try {
                                 await addProductToCart(variantId, quantity);
-                                console.log("Product added to cart successfully");
                             } catch (error) {
                                 console.error("Error adding product to cart:", error);
                             }
