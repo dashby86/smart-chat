@@ -79,23 +79,27 @@
       padding: 1rem;
       background-color: transparent;
     }
-    #input-icon {
-      width: 40px;
-      height: auto;
-      margin-right: 0.5rem;
-    }
     .input-wrapper {
-      display: flex;
-      width: 100%;
-      position: relative;
-      justify-content: center;
-    }
+    display: grid;
+    grid-template-columns: auto 1fr;
+    width: 100%;
+    position: relative;
+    justify-items: center;
+    align-items: center;  /* Centers the items vertically */
+}
+
+#input-icon {
+    grid-column: 1;
+}
+
     #text-prompt {
       width: 100%;
       margin: 0;
+      grid-column: 2;
     }
     #user-input {
       width: 100%;
+      grid-column: 2;
       height: 2rem;
       padding: 0.25rem;
       margin-top: 0.5rem;
@@ -212,10 +216,10 @@
     <div class="input-wrapper">
       <img src="https://www.rebuyengine.com/hubfs/www/media_kit/RebuyIcon-40x40.svg" alt="Icon" id="input-icon" />
       <div style="display: flex; flex-direction: column; width: 100%;">
+      <div id="custom-spinner"></div>
         <p id="text-prompt">Let's make sure you found what you were looking for.</p>
         <div style="position: relative;"> <!-- Add this wrapper div -->
           <input type="text" id="user-input" placeholder="Type your message..." />
-          <div id="custom-spinner"></div>
         </div>
       </div>
     </div>
