@@ -51,27 +51,28 @@
 
 
 .input-wrapper {
+  position: relative; // Add this line
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
   width: 100%;
 }
 
 #input-icon {
   position: absolute;
-  left: 0;
+  left: 0; // Position it at the left edge of the parent container
 }
+
 #text-prompt, #user-input {
   margin-left: 50px; /* Change this value based on the width of the logo */
 }
 
-#text-prompt {
-  width: calc(100% - 50px); /* Subtract the margin from the width */
+#text-prompt, #user-input {
+  width: 100%; // Make the width 100% again
 }
 
 #user-input {
-  width: calc(100% - 50px); /* Subtract the margin from the width */
+  width: 100%; // Make the width 100% again
   height: 2rem;
   padding: 0.25rem;
   margin-top: 0.5rem;
@@ -80,7 +81,9 @@
   font-family: Arial, sans-serif;
   font-size: 1rem;
   outline: none;
+  text-align: center; // Center the text
 }
+
 
 #user-input:focus {
   box-shadow: 0 0 0 2px rgba(0, 0, 255, 0.2);
