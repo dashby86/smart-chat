@@ -261,7 +261,7 @@
                     responseData.products.forEach((product) => {
                         const productCard = `
         <div class="product-card">
-            <img src="${product.images[0].url}" alt="${product.name}">
+            <img src="${product.images.length > 0 ? product.images[0].url : ''}" alt="${product.name}">
             <p>${product.name}</p>
             <button class="add-to-cart" data-variant-id="${product.variants[0].id}">Add to Cart</button>
         </div>
