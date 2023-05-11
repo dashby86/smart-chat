@@ -200,12 +200,16 @@
 }
 
 .splide-collapse-button {
-  text-align: center;
-  background-color: #ccc;
-  color: #fff;
-  border: 1px solid #ccc;
-  padding: 10px 20px;
-  cursor: pointer;
+  display: none;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background: #ffffff;
+    border: none;
+    font-size: 1.2rem;
+    padding: 2px 6px;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
 
@@ -364,6 +368,18 @@
                         });
                     });
                     initializeCarousel();
+                    document.getElementById('carousel-toggle').style.display = 'block';
+                    document.getElementById('carousel-toggle').addEventListener('click', function() {
+                        const carousel = document.getElementById('product-carousel');
+                        const toggleButton = document.getElementById('carousel-toggle');
+                        if (carousel.style.display === 'none') {
+                            carousel.style.display = 'block';
+                            toggleButton.textContent = 'x';
+                        } else {
+                            carousel.style.display = 'none';
+                            toggleButton.style.display = 'none';
+                        }
+                    });
                 }
             } else {
                 console.error("Error sending message:", responseData);
