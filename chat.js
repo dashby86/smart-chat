@@ -93,14 +93,15 @@
 }
 
     #text-prompt {
-        width: 100%;
+        width: 95%;
         margin: 0;
     }
     #user-input {
-        width: 100%;
+        width: 95%;
         height: 2rem;
         padding: 0.25rem;
         margin-top: 0.5rem;
+        margin-right: 20px;
         border-radius: 4px;
         border: 1px solid #ccc;
         font-family: Arial, sans-serif;
