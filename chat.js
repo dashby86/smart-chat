@@ -231,7 +231,6 @@
         <ul class="splide__list">
         </ul>
       </div>
-      <button class="splide-collapse-button">Collapse</button>
     </div>
   </div>
 `;
