@@ -42,6 +42,13 @@
     margin: 0 10px; /* Add margin to the left and right of the arrows */
 }
 
+.splide__pagination {
+    position: absolute;
+    bottom: -20px;  /* adjust this value as per your requirement */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 .carousel-arrow:hover {
     color: #666;
 }
