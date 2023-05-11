@@ -189,13 +189,14 @@
                 const productCard = document.createElement("div");
                 productCard.className = "product-card";
                 productCard.innerHTML = `
-                <img src="${product.image}" alt="${product.title}" />
-                <p>${product.title}</p>
-                <p>${product.price}</p>
-                <button class="add-to-cart">Add to cart</button>
-            `;
+        <img src="${product.image}" alt="${product.title}" />
+        <p>${product.title}</p>
+        <p>${product.price}</p>
+        <button class="add-to-cart" data-variant-id="${product.variants[0].id}">Add to cart</button>
+    `;
                 carouselTrack.appendChild(productCard);
             });
+
         }
     }
 
