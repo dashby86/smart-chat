@@ -90,6 +90,7 @@
       position: relative;
       justify-content: center;
     }
+    
     #text-prompt {
       width: 100%;
       margin: 0;
