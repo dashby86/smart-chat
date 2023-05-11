@@ -234,7 +234,6 @@
           <input type="text" id="user-input" placeholder="Type your message..." />
           <div id="custom-spinner"></div>
         </div>
-        <button class="splide-collapse-button">Collapse</button>
       </div>
     </div>
     <div id="product-carousel" class="carousel splide splide-collapse">
@@ -242,6 +241,13 @@
         <ul class="splide__list">
         </ul>
       </div>
+      <button class="splide-collapse-button">
+  <svg viewBox="0 0 20 20">
+    <circle cx="10" cy="10" r="4" fill="#fff"/>
+    <path d="M5,5 L15,15 M15,5 L5,15" stroke="#ccc" fill="none"/>
+  </svg>
+</button>
+
     </div>
   </div>
 `;
