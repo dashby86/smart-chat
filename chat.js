@@ -67,14 +67,15 @@
 .carousel-arrow-right {
   margin-left: 10px;
 }
+.addon-container {
+  display: flex;
+}
     #addon-container {
       font-family: Arial, sans-serif;
       font-size: 1.2rem;
       color: #333;
       display: flex;
       flex-direction: column;
-       justify-content: center;
-  align-items: center;
       width: 100%;
       height: 100%;
       box-sizing: border-box;
