@@ -10,6 +10,8 @@
         }
     }
 
+    let currentIndex = 0;
+
     // Create a template string with the HTML and CSS for the add-on
     const addonTemplate = `
   <style>
@@ -165,9 +167,6 @@
           <div id="custom-spinner"></div>
         </div>
       </div>
-    </div>
-    <div id="product-carousel" class="carousel">
-      <div class="carousel-track"></div>
     </div>
     <div id="product-carousel" class="carousel">
     <div class="carousel-wrapper">
