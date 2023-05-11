@@ -186,26 +186,15 @@
             <span>&gt;</span>
         </div>
     </div>
+    <div class="splide">
+        <div class="splide__track">
+            <ul class="splide__list" id="product-carousel">
+                <!-- Carousel items will be inserted here -->
+            </ul>
+        </div>
+    </div>
   </div>
 `;
-
-    function moveCarousel(direction) {
-        const carouselTrack = document.querySelector(".carousel-track");
-        const productCards = document.querySelectorAll(".product-card");
-        const cardWidth = productCards[0].offsetWidth;
-
-        currentIndex += direction;
-
-        // Limit the carousel movement
-        if (currentIndex < 0) {
-            currentIndex = 0;
-        } else if (currentIndex > productList.length - 1) {
-            currentIndex = productList.length - 1;
-        }
-
-        // Update the carousel position
-        carouselTrack.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
-    }
 
     // Define a function to initialize the add-on
     function initAddon() {
@@ -215,30 +204,30 @@
 
         const userInput = document.querySelector("#user-input");
         userInput.addEventListener("keydown", (event) => {
-            if (event.key === "Enter" || event.keyCode === 13) { // Add event.keyCode to handle the Enter key in some browsers
+            if (event.key === "Enter" || event.keyCode === 13) {
                 event.preventDefault();
                 sendMessage();
             }
         });
 
-        // Add event listeners for carousel arrows
-        const leftArrow = document.querySelector(".carousel-arrow-left");
-        const rightArrow = document.querySelector(".carousel-arrow-right");
-
-        leftArrow.addEventListener("click", () => {
-            moveCarousel(-1);
-        });
-
-        rightArrow.addEventListener("click", () => {
-            moveCarousel(1);
-        });
+        // Load Splide.js and its CSS
+        loadSplideCSS();
+        loadSplide(initializeCarousel);
     }
-
 
     function updatePrompt(message) {
         const textPrompt = document.getElementById("text-prompt");
         textPrompt.textContent = message;
     }
+
+    function initializeCarousel() {
+        new Splide('.splide', {
+            type: 'loop',
+            perPage: 3,
+            autoplay: true,
+        }).mount();
+    }
+
 
     let currentSessionId;
 
@@ -295,16 +284,20 @@
                     carouselTrack.innerHTML = "";
 
                     // Populate the carousel with product recommendations
+                    // Populate the carousel with product recommendations
                     responseData.products.forEach((product) => {
                         const productCard = `
-        <div class="product-card">
-            <img src="${product.images.length > 0 ? product.images[0].url : ''}" alt="${product.name}">
-            <p>${product.name}</p>
-            <button class="add-to-cart" data-variant-id="${product.variants[0].variant_id}">Add to Cart</button>
-        </div>
+        <li class="splide__slide">
+            <div class="product-card">
+                <img src="${product.images.length > 0 ? product.images[0].url : ''}" alt="${product.name}">
+                <p>${product.name}</p>
+                <button class="add-to-cart" data-variant-id="${product.variants[0].variant_id}">Add to Cart</button>
+            </div>
+        </li>
     `;
-                        carouselTrack.insertAdjacentHTML("beforeend", productCard);
+                        document.querySelector("#product-carousel").insertAdjacentHTML("beforeend", productCard);
                     });
+
 
                     // Add event listeners to the "Add to Cart" buttons
                     const addToCartButtons = document.querySelectorAll(".add-to-cart");
@@ -344,6 +337,21 @@
 
         // Clear the input field
         userInput.value = "";
+    }
+
+    function loadSplide(callback) {
+        const script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = 'https://cdn.jsdelivr.net/npm/@splidejs/splide@3/dist/js/splide.min.js';
+        script.onload = callback;
+        document.head.appendChild(script);
+    }
+
+    function loadSplideCSS() {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'https://cdn.jsdelivr.net/npm/@splidejs/splide@3/dist/css/splide.min.css';
+        document.head.appendChild(link);
     }
 
     async function addProductToCart(variantId, quantity) {
