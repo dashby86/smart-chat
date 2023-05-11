@@ -243,7 +243,7 @@
           padding: 0;
         }
         
-        #typing-indicator {
+        #ellipses {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -256,7 +256,7 @@
     pointer-events: none;
 }
 
-#typing-indicator.visible {
+#ellipses.visible {
     opacity: 1;
 }
 
@@ -267,7 +267,7 @@
     100% { opacity: 1; }
 }
 
-#typing-indicator.visible {
+#ellipses.visible {
     animation: pulse 1s infinite;
 }
   </style>
@@ -278,7 +278,7 @@
         <p id="text-prompt">Let's make sure you found what you were looking for.</p>
         <div style="position: relative;"> <!-- Add this wrapper div -->
           <input type="text" id="user-input" placeholder="Type your message..." />
-          <div id="typing-indicator" class="hidden">...</div>
+          <div id="ellipses" class="hidden">...</div>
         </div>
       </div>
     </div>
@@ -338,7 +338,7 @@
         const userInput = document.querySelector("#user-input");
         const message = userInput.value;
         const logo = document.querySelector("#input-icon");
-        const typingIndicator = document.querySelector("#typing-indicator");
+        const typingIndicator = document.querySelector("#ellipses");
 
         if (message.trim() === "") {
             return;
