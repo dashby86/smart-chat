@@ -173,15 +173,11 @@
       </div>
     </div>
     <div id="product-carousel" class="carousel">
-    <div class="carousel-wrapper">
-        <!-- Add left arrow -->
-        <div class="carousel-arrow carousel-arrow-left">
-            <span>&lt;</span>
-        </div>
-        <!-- Add right arrow -->
-        <div class="carousel-arrow carousel-arrow-right">
-            <span>&gt;</span>
-        </div>
+      <div class="splide__track">
+        <ul class="splide__list">
+          <!-- The product cards will be appended here -->
+        </ul>
+      </div>
     </div>
   </div>
 `;
@@ -269,24 +265,20 @@
 
                 // Check if the response contains product recommendations
                 if (responseData.products && responseData.products.length > 0) {
-                    const carouselTrack = document.querySelector(".carousel-track");
+                    document.querySelector("#product-carousel .splide__list").innerHTML = "";
 
-                    // Clear the previous content of the carousel
-                    carouselTrack.innerHTML = "";
-
-                    // Populate the carousel with product recommendations
                     // Populate the carousel with product recommendations
                     responseData.products.forEach((product) => {
                         const productCard = `
-        <li class="splide__slide">
-            <div class="product-card">
-                <img src="${product.images.length > 0 ? product.images[0].url : ''}" alt="${product.name}">
-                <p>${product.name}</p>
-                <button class="add-to-cart" data-variant-id="${product.variants[0].variant_id}">Add to Cart</button>
-            </div>
-        </li>
+      <li class="splide__slide">
+          <div class="product-card">
+              <img src="${product.images.length > 0 ? product.images[0].url : ''}" alt="${product.name}">
+              <p>${product.name}</p>
+              <button class="add-to-cart" data-variant-id="${product.variants[0].variant_id}">Add to Cart</button>
+          </div>
+      </li>
     `;
-                        document.querySelector("#product-carousel").insertAdjacentHTML("beforeend", productCard);
+                        document.querySelector("#product-carousel .splide__list").insertAdjacentHTML("beforeend", productCard);
                     });
 
 
