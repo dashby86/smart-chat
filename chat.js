@@ -88,6 +88,7 @@
       display: flex;
       width: 100%;
       position: relative;
+      justify-content: center;
     }
     #text-prompt {
       width: 100%;
