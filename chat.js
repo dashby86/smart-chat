@@ -368,10 +368,10 @@
                         });
                     });
                     initializeCarousel();
-                    document.getElementById('carousel-toggle').style.display = 'block';
-                    document.getElementById('carousel-toggle').addEventListener('click', function() {
+                    document.getElementById('.splide-collapse-button').style.display = 'block';
+                    document.getElementById('.splide-collapse-button').addEventListener('click', function() {
                         const carousel = document.getElementById('product-carousel');
-                        const toggleButton = document.getElementById('carousel-toggle');
+                        const toggleButton = document.getElementById('.splide-collapse-button');
                         if (carousel.style.display === 'none') {
                             carousel.style.display = 'block';
                             toggleButton.textContent = 'x';
