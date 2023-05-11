@@ -116,8 +116,13 @@
         outline: none;
         display: flex;
         justify-content: center;
+    transition: border-color 0.3s ease-in-out;
     }
     
+    #user-input.loading {
+    border-color: #ff4500; /* or choose a color that fits your design */
+}
+
     .carousel-wrapper {
         display: flex;
         align-items: center;
@@ -314,6 +319,7 @@
 
         // Show the spinner
         logo.style.animation = "spin 2s linear infinite";
+        userInput.classList.add("loading");
 
         // Prepare the request headers
         const headers = new Headers({
@@ -399,6 +405,7 @@
         }
 
         logo.style.animation = "";
+        userInput.classList.remove("loading");
 
         userInput.value = "";
     }
