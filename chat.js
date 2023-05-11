@@ -192,7 +192,7 @@
         <img src="${product.image}" alt="${product.title}" />
         <p>${product.title}</p>
         <p>${product.price}</p>
-        <button class="add-to-cart" data-variant-id="${product.variants[0].id}">Add to cart</button>
+        <button class="add-to-cart" data-variant-id="${product.variants[0].variant_id}">Add to cart</button>
     `;
                 carouselTrack.appendChild(productCard);
             });
