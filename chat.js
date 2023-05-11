@@ -219,8 +219,8 @@
         <p id="text-prompt">Let's make sure you found what you were looking for.</p>
         <div style="position: relative;"> <!-- Add this wrapper div -->
           <input type="text" id="user-input" placeholder="Type your message..." />
+          <div id="custom-spinner"></div>
         </div>
-        <div id="custom-spinner"></div>
       </div>
     </div>
     <div id="product-carousel" class="carousel">
