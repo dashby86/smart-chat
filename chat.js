@@ -242,7 +242,34 @@
           margin: 0;
           padding: 0;
         }
-    /* Rest of the styles */
+        
+        #typing-indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    text-align: center;
+    width: 100%;
+    pointer-events: none;
+}
+
+#typing-indicator.visible {
+    opacity: 1;
+}
+
+/* Create the animation */
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+#typing-indicator.visible {
+    animation: pulse 1s infinite;
+}
   </style>
   <div id="addon-container">
     <div class="input-wrapper">
@@ -251,6 +278,7 @@
         <p id="text-prompt">Let's make sure you found what you were looking for.</p>
         <div style="position: relative;"> <!-- Add this wrapper div -->
           <input type="text" id="user-input" placeholder="Type your message..." />
+          <div id="typing-indicator" class="hidden">...</div>
         </div>
       </div>
     </div>
@@ -310,6 +338,7 @@
         const userInput = document.querySelector("#user-input");
         const message = userInput.value;
         const logo = document.querySelector("#input-icon");
+        const typingIndicator = document.querySelector("#typing-indicator");
 
         if (message.trim() === "") {
             return;
@@ -319,7 +348,7 @@
 
         // Show the spinner
         logo.style.animation = "spin 2s linear infinite";
-        userInput.classList.add("loading");
+        typingIndicator.classList.add("visible");
 
         // Prepare the request headers
         const headers = new Headers({
@@ -398,14 +427,19 @@
                     });
                 }
             } else {
+                logo.style.animation = "";
+                typingIndicator.classList.remove("visible");
                 console.error("Error sending message:", responseData);
             }
         } catch (error) {
+            logo.style.animation = "";
+            typingIndicator.classList.remove("visible");
             console.error("Error sending message:", error);
         }
 
         logo.style.animation = "";
         userInput.classList.remove("loading");
+        typingIndicator.classList.remove("visible");
 
         userInput.value = "";
     }
