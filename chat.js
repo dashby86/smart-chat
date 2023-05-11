@@ -88,7 +88,7 @@
 #input-icon {
   position: relative;
   top: 5px;
-  margin-right: 10px;
+  margin-right: 15px;
 }
 
     #text-prompt {
@@ -100,7 +100,7 @@
         height: 2rem;
         padding: 0.25rem;
         margin-top: 0.5rem;
-        margin-right: 30px;
+        margin-right: 40px;
         border-radius: 4px;
         border: 1px solid #ccc;
         font-family: Arial, sans-serif;
