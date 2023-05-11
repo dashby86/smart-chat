@@ -80,18 +80,18 @@
       background-color: transparent;
     }
     .input-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-#input-icon {
-    margin-right: auto;
-}
+    #input-icon {
+        display: inline-block;
+    }
 
     #text-prompt {
-      width: 100%;
-      margin: 0;
+        width: 100%;
+        margin: 0;
     }
     #user-input {
         width: 100%;
