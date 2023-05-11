@@ -193,7 +193,6 @@
   text-align: center; /* Center the product names */
 }
 
-
         .add-to-cart {
     margin-top: auto;
     color: #ffffff;
@@ -244,8 +243,8 @@
         }
         
         #ellipses {
-    position: absolute;
-    top: 50%;
+     position: absolute;
+    top: -5px;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 16px;
