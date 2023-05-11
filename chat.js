@@ -85,19 +85,16 @@
   align-items: center;
 }
 
-
 #input-icon {
-    grid-column: 1;
+    margin-right: auto;
 }
 
     #text-prompt {
       width: 100%;
       margin: 0;
-      grid-column: 2;
     }
     #user-input {
         width: 100%;
-        grid-column: 2;
         height: 2rem;
         padding: 0.25rem;
         margin-top: 0.5rem;
