@@ -187,7 +187,7 @@
         <img src="${product.image}" alt="${product.title}" />
         <p>${product.title}</p>
         <p>${product.price}</p>
-        <button class=".rebuy-button" data-variant-id="${product.variants[0].variant_id}">Add to cart</button>
+        <button class="rebuy-button" data-variant-id="${product.variants[0].variant_id}">Add to cart</button>
     `;
                 carouselTrack.appendChild(productCard);
             });
