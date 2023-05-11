@@ -92,6 +92,12 @@
   position: relative;
   top: 5px;
   margin-right: 15px;
+  animation: spin 2s linear infinite; /* Add this line */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
     #text-prompt {
@@ -241,7 +247,6 @@
         <p id="text-prompt">Let's make sure you found what you were looking for.</p>
         <div style="position: relative;"> <!-- Add this wrapper div -->
           <input type="text" id="user-input" placeholder="Type your message..." />
-          <div id="custom-spinner"></div>
         </div>
       </div>
     </div>
@@ -300,7 +305,7 @@
     async function sendMessage() {
         const userInput = document.querySelector("#user-input");
         const message = userInput.value;
-        const spinner = document.querySelector("#custom-spinner");
+        const logo = document.querySelector("#input-icon");
 
         if (message.trim() === "") {
             return;
@@ -309,7 +314,7 @@
         const shopId = getRebuyShopId('Rebuy', 'Shopify');
 
         // Show the spinner
-        spinner.style.display = "inline-block";
+        logo.style.animation = "spin 2s linear infinite";
 
         // Prepare the request headers
         const headers = new Headers({
@@ -394,7 +399,7 @@
             console.error("Error sending message:", error);
         }
 
-        spinner.style.display = "none";
+        logo.style.animation = "";
 
         userInput.value = "";
     }
