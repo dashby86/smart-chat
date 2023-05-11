@@ -92,7 +92,6 @@
   position: relative;
   top: 5px;
   margin-right: 15px;
-  animation: spin 2s linear infinite; /* Add this line */
 }
 
 @keyframes spin {
