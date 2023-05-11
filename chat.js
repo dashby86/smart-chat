@@ -200,18 +200,23 @@
 }
 
 .splide-collapse-button {
-  display: none;
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    background: #ffffff;
-    border: none;
-    font-size: 1.2rem;
-    padding: 2px 6px;
-    border-radius: 50%;
-    cursor: pointer;
+ display: none;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: #333;  /* change the color to something more visible */
+  color: #fff;  /* change the color of the svg to white */
+  border: none;
+  font-size: 1.2rem;
+  padding: 6px;  /* increase the padding to make the button larger */
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 5;  /* ensure the button is always on top */
 }
 
+.splide-collapse-button:hover {
+  background: #666;  /* change the color on hover to give some interaction feedback */
+}
 
 .add-to-cart:hover {
     background: #444444; /* Change the background color on hover */
@@ -246,10 +251,10 @@
         </ul>
       </div>
       <button class="splide-collapse-button">
-  <svg viewBox="0 0 20 20">
-    <circle cx="10" cy="10" r="4" fill="#fff"/>
-    <path d="M5,5 L15,15 M15,5 L5,15" stroke="#ccc" fill="none"/>
-  </svg>
+  <svg viewBox="0 0 20 20" fill="currentColor">  <!-- add fill attribute -->
+  <circle cx="10" cy="10" r="4" fill="#fff"/>
+  <path d="M5,5 L15,15 M15,5 L5,15" stroke="#fff" fill="none"/>  <!-- change stroke to white -->
+</svg>
 </button>
 
     </div>
