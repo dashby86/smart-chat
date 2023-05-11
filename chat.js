@@ -264,7 +264,7 @@
         <div class="product-card">
             <img src="${product.images.length > 0 ? product.images[0].url : ''}" alt="${product.name}">
             <p>${product.name}</p>
-            <button class="add-to-cart" data-variant-id="${product.variants[0].id}">Add to Cart</button>
+            <button class="add-to-cart" data-variant-id="${product.variants[0].variant_id}">Add to Cart</button>
         </div>
     `;
                         carouselTrack.insertAdjacentHTML("beforeend", productCard);
