@@ -4,7 +4,6 @@
 (function () {
     function getRebuyShopId(rebuy, shopify) {
         const element = window[rebuy];
-        const shopifyElement = window[shopify];
 
         if (element && element.shop && element.shop.id) {
             return element.shop.id;
@@ -14,9 +13,28 @@
     // Create a template string with the HTML and CSS for the add-on
     const addonTemplate = `
   <style>
+    .carousel-arrow {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.3);
+      color: #fff;
+    }
+    .carousel-arrow:hover {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+    .carousel-arrow-left {
+      margin-right: 10px;
+    }
+    .carousel-arrow-right {
+      margin-left: 10px;
+    }
     #addon-container {
       font-family: Arial, sans-serif;
-      font-size: 1rem;
+      font-size: 1.2rem;
       color: #333;
       display: flex;
       flex-direction: column;
@@ -142,9 +160,39 @@
     <div id="product-carousel" class="carousel">
       <div class="carousel-track"></div>
     </div>
+    <div id="product-carousel" class="carousel">
+      <!-- Add left arrow -->
+      <div class="carousel-arrow carousel-arrow-left">
+        <span>&lt;</span>
+      </div>
+      <div class="carousel-track-container">
+        <div class="carousel-track"></div>
+      </div>
+      <!-- Add right arrow -->
+      <div class="carousel-arrow carousel-arrow-right">
+        <span>&gt;</span>
+      </div>
+    </div>
   </div>
 `;
 
+    function moveCarousel(direction) {
+        const carouselTrack = document.querySelector(".carousel-track");
+        const productCards = document.querySelectorAll(".product-card");
+        const cardWidth = productCards[0].offsetWidth;
+
+        currentIndex += direction;
+
+        // Limit the carousel movement
+        if (currentIndex < 0) {
+            currentIndex = 0;
+        } else if (currentIndex > productList.length - 1) {
+            currentIndex = productList.length - 1;
+        }
+
+        // Update the carousel position
+        carouselTrack.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+    }
 
     // Define a function to initialize the add-on
     function initAddon() {
@@ -161,40 +209,21 @@
         });
     }
 
-    let currentIndex = 0;
-    let productList = [];
+    const leftArrow = document.querySelector(".carousel-arrow-left");
+    const rightArrow = document.querySelector(".carousel-arrow-right");
+
+    leftArrow.addEventListener("click", () => {
+        moveCarousel(-1);
+    });
+
+    rightArrow.addEventListener("click", () => {
+        moveCarousel(1);
+    });
 
     function updatePrompt(message) {
         const textPrompt = document.getElementById("text-prompt");
         textPrompt.textContent = message;
     }
-
-    function displayProducts(products) {
-        productList = products;
-        const carouselTrack = document.querySelector(".carousel-track");
-        carouselTrack.innerHTML = "";
-
-        if (products.length === 0) {
-            // If there are no products, do not display the carousel
-            document.getElementById("product-carousel").style.display = "none";
-        } else {
-            // If there are products, display the carousel and render the products
-            document.getElementById("product-carousel").style.display = "flex";
-            products.forEach((product) => {
-                const productCard = document.createElement("div");
-                productCard.className = "product-card";
-                productCard.innerHTML = `
-        <img src="${product.image}" alt="${product.title}" />
-        <p>${product.title}</p>
-        <p>${product.price}</p>
-        <button class="rebuy-button" data-variant-id="${product.variants[0].variant_id}">Add to cart</button>
-    `;
-                carouselTrack.appendChild(productCard);
-            });
-
-        }
-    }
-
 
     let currentSessionId;
 
@@ -256,7 +285,7 @@
         <div class="product-card">
             <img src="${product.images.length > 0 ? product.images[0].url : ''}" alt="${product.name}">
             <p>${product.name}</p>
-            <button class="rebuy-button" data-variant-id="${product.variants[0].variant_id}">Add to Cart</button>
+            <button class="add-to-cart" data-variant-id="${product.variants[0].variant_id}">Add to Cart</button>
         </div>
     `;
                         carouselTrack.insertAdjacentHTML("beforeend", productCard);
