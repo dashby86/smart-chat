@@ -207,18 +207,20 @@
                 sendMessage();
             }
         });
+
+        // Add event listeners for carousel arrows
+        const leftArrow = document.querySelector(".carousel-arrow-left");
+        const rightArrow = document.querySelector(".carousel-arrow-right");
+
+        leftArrow.addEventListener("click", () => {
+            moveCarousel(-1);
+        });
+
+        rightArrow.addEventListener("click", () => {
+            moveCarousel(1);
+        });
     }
 
-    const leftArrow = document.querySelector(".carousel-arrow-left");
-    const rightArrow = document.querySelector(".carousel-arrow-right");
-
-    leftArrow.addEventListener("click", () => {
-        moveCarousel(-1);
-    });
-
-    rightArrow.addEventListener("click", () => {
-        moveCarousel(1);
-    });
 
     function updatePrompt(message) {
         const textPrompt = document.getElementById("text-prompt");
