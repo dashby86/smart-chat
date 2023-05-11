@@ -14,24 +14,25 @@
     const addonTemplate = `
   <style>
     .carousel-arrow {
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.3);
-      color: #fff;
-    }
-    .carousel-arrow:hover {
-      background-color: rgba(0, 0, 0, 0.5);
-    }
-    .carousel-arrow-left {
-      margin-right: 10px;
-    }
-    .carousel-arrow-right {
-      margin-left: 10px;
-    }
+  cursor: pointer;
+  display: none; /* Initially hide the arrows */
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 100%;
+  color: #333;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+.carousel-arrow:hover {
+  color: #666;
+}
+.carousel-arrow-left {
+  margin-right: 10px;
+}
+.carousel-arrow-right {
+  margin-left: 10px;
+}
     #addon-container {
       font-family: Arial, sans-serif;
       font-size: 1.2rem;
@@ -308,7 +309,16 @@
                             }
                         });
                     });
-
+                    const leftArrow = document.querySelector(".carousel-arrow-left");
+                    const rightArrow = document.querySelector(".carousel-arrow-right");
+                    leftArrow.style.display = "block";
+                    rightArrow.style.display = "block";
+                } else {
+                    // Hide the arrows if there are no products
+                    const leftArrow = document.querySelector(".carousel-arrow-left");
+                    const rightArrow = document.querySelector(".carousel-arrow-right");
+                    leftArrow.style.display = "none";
+                    rightArrow.style.display = "none";
                 }
             } else {
                 console.error("Error sending message:", responseData);
