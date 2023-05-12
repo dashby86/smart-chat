@@ -71,7 +71,7 @@
   display: flex;
 }
 #addon-container {
-  font-family: Soleil, sans-serif;
+  font-family: sofia-pro, sans-serif;
   font-size: 1.2rem;
   color: #333;
   display: flex;
@@ -99,21 +99,28 @@
     width: 95%;
     margin: 0;
 }
-#user-input {
-    width: 95%;
-    height: 2rem;
-    padding: 0.25rem;
-    margin-top: 0.5rem;
-    margin-right: 40px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    font-family: soleil, sans-serif;
-    font-size: 1.2rem;
-    outline: none;
-    display: flex;
-    justify-content: center;
-transition: border-color 0.3s ease-in-out;
-}
+    #user-input {
+        display: inline-block;
+        margin: 0;
+        padding: 0.625rem 1rem;
+        width: 100%;
+        font-family: sofia-pro, sans-serif;
+        font-size: 1rem;
+        line-height: 1.5;
+        background-color: #fff;
+        color: #374151;
+        border-width: 1px;
+        border-style: solid;
+        border-color: #9ca3af;
+        border-radius: 0.375rem;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        transition-property: border, background-color, box-shadow;
+        transition-duration: 200ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        pointer-events: auto;
+    }
 
 #user-input.loading {
 border-color: #ff4500; /* or choose a color that fits your design */
