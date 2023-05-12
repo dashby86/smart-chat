@@ -14,7 +14,7 @@
 
     // Create a template string with the HTML and CSS for the add-on
     const addonTemplate = `
-  <style>
+    <style>
     .carousel {
     display: flex;
     justify-content: center;
@@ -70,18 +70,18 @@
 .addon-container {
   display: flex;
 }
-    #addon-container {
-      font-family: Arial, sans-serif;
-      font-size: 1.2rem;
-      color: #333;
-      display: flex;
-      flex-direction: column;
-      width: auto;
-      height: 100%;
-      box-sizing: border-box;
-      padding: 1rem;
-      background-color: transparent;
-    }
+#addon-container {
+  font-family: Arial, sans-serif;
+  font-size: 1.2rem;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  height: auto;
+  box-sizing: border-box;
+  padding: 1rem;
+  background-color: transparent;
+}
     
 
 #input-icon {
@@ -95,35 +95,35 @@
   100% { transform: rotate(360deg); }
 }
 
-    #text-prompt {
-        width: 95%;
-        margin: 0;
-    }
-    #user-input {
-        width: 95%;
-        height: 2rem;
-        padding: 0.25rem;
-        margin-top: 0.5rem;
-        margin-right: 40px;
-        border-radius: 4px;
-        border: 1px solid #ccc;
-        font-family: Arial, sans-serif;
-        font-size: 1rem;
-        outline: none;
-        display: flex;
-        justify-content: center;
-    transition: border-color 0.3s ease-in-out;
-    }
-    
-    #user-input.loading {
-    border-color: #ff4500; /* or choose a color that fits your design */
+#text-prompt {
+    width: 95%;
+    margin: 0;
+}
+#user-input {
+    width: 95%;
+    height: 2rem;
+    padding: 0.25rem;
+    margin-top: 0.5rem;
+    margin-right: 40px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    outline: none;
+    display: flex;
+    justify-content: center;
+transition: border-color 0.3s ease-in-out;
 }
 
-    .carousel-wrapper {
-        display: flex;
-        align-items: center;
-        position: relative;
-    }
+#user-input.loading {
+border-color: #ff4500; /* or choose a color that fits your design */
+}
+
+.carousel-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
 
 .carousel-arrow {
   position: absolute;
