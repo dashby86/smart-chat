@@ -251,15 +251,17 @@
   text-align: center;
 }
 
-#ellipses {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 10px; /* Adjust this value for horizontal positioning */
-  font-size: 24px;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
+    #ellipses {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 24px; /* Adjust the size here */
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        text-align: center;
+        pointer-events: none;
+    }
 
 #ellipses.hidden {
     opacity: 0;
@@ -285,9 +287,9 @@
   <div id="addon-container">
     <div class="input-wrapper">
       <img src="https://www.rebuyengine.com/hubfs/www/media_kit/RebuyIcon-40x40.svg" alt="Icon" id="input-icon" />
-      <div id="ellipses" class="hidden">•••</div>
       <div style="position: relative; display: flex; flex-direction: column; width: 100%;">
         <p id="text-prompt">Let's make sure you found what you were looking for.</p>
+        <div id="ellipses" class="hidden">•••</div>
         <div style="position: relative;"> <!-- Add this wrapper div -->
           <input type="text" id="user-input" placeholder="Type your message..." />
         </div>
@@ -351,6 +353,7 @@
         const message = userInput.value;
         const logo = document.querySelector("#input-icon");
         const ellipses = document.querySelector("#ellipses");
+        const textPrompt = document.querySelector("#text-prompt");
 
         if (message.trim() === "") {
             return;
@@ -360,8 +363,11 @@
 
         // Show the spinner
         logo.style.animation = "spin 2s linear infinite";
-        showEllipses();
+        textPrompt.classList.add("hidden");
+        ellipses.classList.remove("hidden");
+        ellipses.classList.add("visible");
         userInput.disabled = true;
+        updatePrompt('');
 
         // Prepare the request headers
         const headers = new Headers({
@@ -450,7 +456,8 @@
 
         logo.style.animation = "";
         userInput.classList.remove("loading");
-        //hideEllipses();
+        ellipses.classList.remove("visible");
+        textPrompt.classList.remove("hidden");
         userInput.disabled = false;
 
         userInput.value = "";
@@ -497,14 +504,6 @@
 
         const jsonResponse = await response.json();
         return jsonResponse;
-    }
-
-    function showEllipses() {
-        document.getElementById('text-prompt').textContent = '...';
-    }
-
-    function hideEllipses() {
-        document.getElementById('text-prompt').textContent = '';
     }
 
 
