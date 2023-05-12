@@ -362,7 +362,6 @@
         logo.style.animation = "spin 2s linear infinite";
         showEllipses();
         userInput.disabled = true;
-        updatePrompt('');
 
         // Prepare the request headers
         const headers = new Headers({
@@ -451,7 +450,7 @@
 
         logo.style.animation = "";
         userInput.classList.remove("loading");
-        hideEllipses();
+        //hideEllipses();
         userInput.disabled = false;
 
         userInput.value = "";
@@ -505,7 +504,7 @@
     }
 
     function hideEllipses() {
-        document.getElementById('text-prompt').textContent = 'Enter your text here';
+        document.getElementById('text-prompt').textContent = '';
     }
 
 
