@@ -82,11 +82,7 @@
       padding: 1rem;
       background-color: transparent;
     }
-    .input-wrapper {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+    
 
 #input-icon {
   position: relative;
@@ -242,18 +238,22 @@
           padding: 0;
         }
         
-        #ellipses {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 16px;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    text-align: center;
-    width: 20px;
-    pointer-events: none;
-}
+    .input-wrapper {
+        position: relative;
+    }
+
+    #ellipses {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 24px; /* Adjust the size here */
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        text-align: center;
+        pointer-events: none;
+    }
+
 #ellipses.hidden {
     opacity: 0;
 }
