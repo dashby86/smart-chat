@@ -107,7 +107,7 @@
     margin-right: 40px;
     border-radius: 4px;
     border: 1px solid #ccc;
-    font-family: Soleil, sans-serif;
+    font-family: soleil, sans-serif;
     font-size: 1.2rem;
     outline: none;
     display: flex;
@@ -263,19 +263,6 @@ border-color: #ff4500; /* or choose a color that fits your design */
     opacity: 0;
 }
 
-@font-face {
-  font-family: 'Soleil';
-  src: url('Soleil-Regular.eot'); /* IE9 */
-  src: url('Soleil-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('Soleil-Regular.woff2') format('woff2'), /* Modern Browsers */
-       url('Soleil-Regular.woff') format('woff'), /* Pretty Modern Browsers */
-       url('Soleil-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('Soleil-Regular.svg#svgFontName') format('svg'); /* Legacy iOS */
-  font-weight: normal;
-  font-style: normal;
-}
-
-
 #ellipses.visible {
     opacity: 1;
 }
@@ -335,6 +322,7 @@ border-color: #ff4500; /* or choose a color that fits your design */
 
         // Load Splide.js and its CSS
         loadSplideCSS();
+        loadStyles();
         loadSplide(initializeCarousel);
     }
 
@@ -486,6 +474,12 @@ border-color: #ff4500; /* or choose a color that fits your design */
         document.head.appendChild(link);
     }
 
+    function loadStyles() {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'https://use.typekit.net/wwu2vrm.css';
+        document.head.appendChild(link);
+    }
     async function addProductToCart(variantId, quantity) {
         const formData = {
             items: [{
