@@ -254,6 +254,10 @@
     width: 20px;
     pointer-events: none;
 }
+#ellipses.hidden {
+    opacity: 0;
+}
+
 
 
 #ellipses.visible {
@@ -339,6 +343,10 @@
         const message = userInput.value;
         const logo = document.querySelector("#input-icon");
         const ellipses = document.querySelector("#ellipses");
+        ellipses.addEventListener('animationiteration', () => {
+            ellipses.classList.add('hidden');
+        });
+
 
         if (message.trim() === "") {
             return;
