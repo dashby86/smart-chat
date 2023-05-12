@@ -354,6 +354,7 @@
         // Show the spinner
         logo.style.animation = "spin 2s linear infinite";
         ellipses.classList.remove("hidden");
+        ellipses.classList.add("visible");
         userInput.disabled = true;
         updatePrompt('');
 
@@ -444,7 +445,7 @@
 
         logo.style.animation = "";
         userInput.classList.remove("loading");
-        ellipses.classList.add("hidden");
+        ellipses.classList.remove("visible");
         userInput.disabled = false;
 
         userInput.value = "";
