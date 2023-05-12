@@ -313,6 +313,7 @@
             if (event.key === "Enter" || event.keyCode === 13) {
                 event.preventDefault();
                 sendMessage();
+                userInput.value = "";
             }
         });
 
@@ -343,10 +344,6 @@
         const message = userInput.value;
         const logo = document.querySelector("#input-icon");
         const ellipses = document.querySelector("#ellipses");
-        ellipses.addEventListener('animationiteration', () => {
-            ellipses.classList.add('hidden');
-        });
-
 
         if (message.trim() === "") {
             return;
@@ -358,6 +355,7 @@
         logo.style.animation = "spin 2s linear infinite";
         ellipses.classList.remove("hidden");
         userInput.disabled = true;
+        updatePrompt('');
 
         // Prepare the request headers
         const headers = new Headers({
