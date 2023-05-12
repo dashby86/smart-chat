@@ -97,7 +97,7 @@
 
 #text-prompt {
     width: 95%;
-    margin: 0;
+    margin: 0 0 5px 0;
 }
     #user-input {
         display: inline-block;
@@ -106,13 +106,13 @@
         width: 100%;
         font-family: sofia-pro, sans-serif;
         font-size: 1.1rem;
-        line-height: 1.5;
+        line-height: 1.3;
         background-color: #fff;
         color: #374151;
         border-width: 1px;
         border-style: solid;
         border-color: #9ca3af;
-        border-radius: 0.375rem;
+        border-radius: 0.20rem;
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
