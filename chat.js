@@ -459,18 +459,19 @@
     }
 
     async function addProductToCart(variantId, quantity) {
+        const cart = await shopify.carts.get();
         const formData = {
             items: [{
                 id: variantId,
                 quantity: quantity,
-                custom_attributes: {
+                line_item_custom_attributes: {
                     '_source': 'Rebuy',
                     '_attribution': 'rebuy-assistant'
                 },
             }],
         };
 
-        const response = await fetch(window.Shopify.routes.root + 'cart/add.js', {
+        const response = await fetch(window.Shopify.routes.root + 'cart/line_items', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
