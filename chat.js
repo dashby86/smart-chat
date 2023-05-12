@@ -71,7 +71,7 @@
   display: flex;
 }
 #addon-container {
-  font-family: Arial, sans-serif;
+  font-family: soleil, sans-serif;
   font-size: 1.2rem;
   color: #333;
   display: flex;
@@ -107,8 +107,8 @@
     margin-right: 40px;
     border-radius: 4px;
     border: 1px solid #ccc;
-    font-family: Arial, sans-serif;
-    font-size: 1rem;
+    font-family: soleil, sans-serif;
+    font-size: 1.2rem;
     outline: none;
     display: flex;
     justify-content: center;
