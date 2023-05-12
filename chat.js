@@ -243,10 +243,10 @@
         }
         
         #ellipses {
-     position: absolute;
+    position: absolute;
     top: 50%;
-    right: 5px;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-size: 16px;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
@@ -278,7 +278,7 @@
   <div id="addon-container">
     <div class="input-wrapper">
       <img src="https://www.rebuyengine.com/hubfs/www/media_kit/RebuyIcon-40x40.svg" alt="Icon" id="input-icon" />
-      <div style="display: flex; flex-direction: column; width: 100%;">
+      <div style="position: relative; display: flex; flex-direction: column; width: 100%;">
         <p id="text-prompt">Let's make sure you found what you were looking for.</p>
         <div style="position: relative;"> <!-- Add this wrapper div -->
           <input type="text" id="user-input" placeholder="Type your message..." />
