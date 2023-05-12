@@ -463,14 +463,14 @@
             items: [{
                 id: variantId,
                 quantity: quantity,
-                line_item_custom_attributes: {
+                properties: {
                     '_source': 'Rebuy',
                     '_attribution': 'rebuy-assistant'
                 },
             }],
         };
 
-        const response = await fetch(window.Shopify.routes.root + 'cart/guest-add-line-item', {
+        const response = await fetch(window.Shopify.routes.root + 'cart/add.js', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
