@@ -348,6 +348,7 @@
         // Show the spinner
         logo.style.animation = "spin 2s linear infinite";
         ellipses.classList.add("visible");
+        userInput.disabled = true;
 
         // Prepare the request headers
         const headers = new Headers({
@@ -431,14 +432,13 @@
                 console.error("Error sending message:", responseData);
             }
         } catch (error) {
-            logo.style.animation = "";
-            ellipses.classList.remove("visible");
             console.error("Error sending message:", error);
         }
 
         logo.style.animation = "";
         userInput.classList.remove("loading");
         ellipses.classList.remove("visible");
+        userInput.disabled = false;
 
         userInput.value = "";
     }
@@ -465,7 +465,7 @@
                 quantity: quantity,
                 properties: {
                     '_source': 'Rebuy',
-                    '_attribution': 'rebuy-assistant'
+                    '_attribution': 'Rebuy Assistant'
                 },
             }],
         };
