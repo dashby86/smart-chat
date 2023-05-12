@@ -463,7 +463,7 @@
             items: [{
                 id: variantId,
                 quantity: quantity,
-                line_item_custom_attributes: {
+                custom_attributes: {
                     '_source': 'Rebuy',
                     '_attribution': 'rebuy-assistant'
                 },
