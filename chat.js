@@ -248,7 +248,6 @@ border-color: #ff4500; /* or choose a color that fits your design */
 #text-prompt {
   /* Your existing styles */
   flex-grow: 1; /* Allow this element to take remaining horizontal space */
-  text-align: center;
 }
 
     #ellipses {
