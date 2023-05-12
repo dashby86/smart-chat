@@ -459,7 +459,6 @@
     }
 
     async function addProductToCart(variantId, quantity) {
-        const cart = await shopify.carts.get();
         const formData = {
             items: [{
                 id: variantId,
