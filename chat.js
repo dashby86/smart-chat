@@ -360,8 +360,7 @@
 
         // Show the spinner
         logo.style.animation = "spin 2s linear infinite";
-        ellipses.classList.remove("hidden");
-        ellipses.classList.add("visible");
+        showEllipses();
         userInput.disabled = true;
         updatePrompt('');
 
@@ -452,7 +451,7 @@
 
         logo.style.animation = "";
         userInput.classList.remove("loading");
-        ellipses.classList.remove("visible");
+        hideEllipses();
         userInput.disabled = false;
 
         userInput.value = "";
@@ -499,6 +498,14 @@
 
         const jsonResponse = await response.json();
         return jsonResponse;
+    }
+
+    function showEllipses() {
+        document.getElementById('text-prompt').textContent = '...';
+    }
+
+    function hideEllipses() {
+        document.getElementById('text-prompt').textContent = 'Enter your text here';
     }
 
 
