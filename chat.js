@@ -454,6 +454,7 @@ border-color: #ff4500; /* or choose a color that fits your design */
         logo.style.animation = "";
         userInput.classList.remove("loading");
         ellipses.classList.remove("visible");
+        ellipses.classList.add("hidden");
         textPrompt.classList.remove("hidden");
         userInput.disabled = false;
 
