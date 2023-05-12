@@ -244,16 +244,17 @@
         
         #ellipses {
      position: absolute;
-    top: -5px;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
     font-size: 16px;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
     text-align: center;
-    width: 100%;
+    width: 20px;
     pointer-events: none;
 }
+
 
 #ellipses.visible {
     opacity: 1;
@@ -277,7 +278,7 @@
         <p id="text-prompt">Let's make sure you found what you were looking for.</p>
         <div style="position: relative;"> <!-- Add this wrapper div -->
           <input type="text" id="user-input" placeholder="Type your message..." />
-          <div id="ellipses" class="hidden">...</div>
+          <div id="ellipses" class="hidden">•••</div>
         </div>
       </div>
     </div>
@@ -347,7 +348,7 @@
 
         // Show the spinner
         logo.style.animation = "spin 2s linear infinite";
-        ellipses.classList.add("visible");
+        ellipses.classList.remove("hidden");
         userInput.disabled = true;
 
         // Prepare the request headers
@@ -437,7 +438,7 @@
 
         logo.style.animation = "";
         userInput.classList.remove("loading");
-        ellipses.classList.remove("visible");
+        ellipses.classList.add("hidden");
         userInput.disabled = false;
 
         userInput.value = "";
