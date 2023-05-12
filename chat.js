@@ -252,14 +252,12 @@ border-color: #ff4500; /* or choose a color that fits your design */
 }
 
     #ellipses {
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
         font-size: 24px; /* Adjust the size here */
         opacity: 0;
         transition: opacity 0.3s ease-in-out;
         text-align: center;
         pointer-events: none;
+        align-items: center;
     }
 
 #ellipses.hidden {
