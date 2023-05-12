@@ -105,7 +105,7 @@
         padding: 0.625rem 1rem;
         width: 100%;
         font-family: sofia-pro, sans-serif;
-        font-size: 1rem;
+        font-size: 1.1rem;
         line-height: 1.5;
         background-color: #fff;
         color: #374151;
@@ -147,19 +147,6 @@ border-color: #ff4500; /* or choose a color that fits your design */
   right: 0;
 }
 
-    #user-input:focus {
-      box-shadow: 0 0 0 2px rgba(0, 0, 255, 0.2);
-      outline: none;
-      border: none;
-    }
-        @keyframes spinner {
-        0% {
-          transform: translate3d(-50%, -50%, 0) rotate(0deg);
-        }
-        100% {
-          transform: translate3d(-50%, -50%, 0) rotate(360deg);
-        }
-      }
       #custom-spinner::before {
   animation: 1.5s linear infinite spinner;
   animation-play-state: inherit;
