@@ -464,7 +464,8 @@
                 id: variantId,
                 quantity: quantity,
                 line_item_properties: {
-                    'custom_property_1': 'value1'
+                    '_source': 'Rebuy',
+                    '_attribution': 'rebuy-assistant'
                 },
             }],
         };
