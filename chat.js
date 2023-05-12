@@ -367,7 +367,7 @@
         ellipses.classList.remove("hidden");
         ellipses.classList.add("visible");
         userInput.disabled = true;
-        updatePrompt('');
+        //updatePrompt('');
 
         // Prepare the request headers
         const headers = new Headers({
