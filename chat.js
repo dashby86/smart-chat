@@ -239,20 +239,27 @@
         }
         
     .input-wrapper {
-        position: relative;
-    }
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+}
 
-    #ellipses {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 24px; /* Adjust the size here */
-        opacity: 0;
-        transition: opacity 0.3s ease-in-out;
-        text-align: center;
-        pointer-events: none;
-    }
+#text-prompt {
+  /* Your existing styles */
+  flex-grow: 1; /* Allow this element to take remaining horizontal space */
+  text-align: center;
+}
+
+#ellipses {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px; /* Adjust this value for horizontal positioning */
+  font-size: 24px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
 
 #ellipses.hidden {
     opacity: 0;
@@ -278,11 +285,11 @@
   <div id="addon-container">
     <div class="input-wrapper">
       <img src="https://www.rebuyengine.com/hubfs/www/media_kit/RebuyIcon-40x40.svg" alt="Icon" id="input-icon" />
+      <div id="ellipses" class="hidden">•••</div>
       <div style="position: relative; display: flex; flex-direction: column; width: 100%;">
         <p id="text-prompt">Let's make sure you found what you were looking for.</p>
         <div style="position: relative;"> <!-- Add this wrapper div -->
           <input type="text" id="user-input" placeholder="Type your message..." />
-          <div id="ellipses" class="hidden">•••</div>
         </div>
       </div>
     </div>
