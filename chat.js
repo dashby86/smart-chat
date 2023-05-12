@@ -71,7 +71,7 @@
   display: flex;
 }
 #addon-container {
-  font-family: soleil, sans-serif;
+  font-family: Soleil, sans-serif;
   font-size: 1.2rem;
   color: #333;
   display: flex;
@@ -107,7 +107,7 @@
     margin-right: 40px;
     border-radius: 4px;
     border: 1px solid #ccc;
-    font-family: soleil, sans-serif;
+    font-family: Soleil, sans-serif;
     font-size: 1.2rem;
     outline: none;
     display: flex;
@@ -263,6 +263,17 @@ border-color: #ff4500; /* or choose a color that fits your design */
     opacity: 0;
 }
 
+@font-face {
+  font-family: 'Soleil';
+  src: url('Soleil-Regular.eot'); /* IE9 */
+  src: url('Soleil-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('Soleil-Regular.woff2') format('woff2'), /* Modern Browsers */
+       url('Soleil-Regular.woff') format('woff'), /* Pretty Modern Browsers */
+       url('Soleil-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('Soleil-Regular.svg#svgFontName') format('svg'); /* Legacy iOS */
+  font-weight: normal;
+  font-style: normal;
+}
 
 
 #ellipses.visible {
