@@ -76,7 +76,7 @@
       color: #333;
       display: flex;
       flex-direction: column;
-      width: 100%;
+      width: auto;
       height: 100%;
       box-sizing: border-box;
       padding: 1rem;
