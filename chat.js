@@ -470,7 +470,7 @@
             }],
         };
 
-        const response = await fetch(window.Shopify.routes.root + 'cart/line_items', {
+        const response = await fetch(window.Shopify.routes.root + 'cart/guest-add-line-item', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
