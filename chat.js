@@ -252,7 +252,6 @@ border-color: #ff4500; /* or choose a color that fits your design */
 }
 
     #ellipses {
-        position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -285,7 +284,7 @@ border-color: #ff4500; /* or choose a color that fits your design */
 }
   </style>
   <div id="addon-container">
-  <div id="ellipses" class="hidden">•••</div>
+      <div id="ellipses" class="hidden">•••</div>
     <div class="input-wrapper">
       <img src="https://www.rebuyengine.com/hubfs/www/media_kit/RebuyIcon-40x40.svg" alt="Icon" id="input-icon" />
       <div style="position: relative; display: flex; flex-direction: column; width: 100%;">
