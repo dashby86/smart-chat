@@ -14,7 +14,7 @@
 
     // Create a template string with the HTML and CSS for the add-on
     const addonTemplate = `
-  <style>
+    <style>
     .carousel {
     display: flex;
     justify-content: center;
@@ -70,23 +70,19 @@
 .addon-container {
   display: flex;
 }
-    #addon-container {
-      font-family: Arial, sans-serif;
-      font-size: 1.2rem;
-      color: #333;
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      height: 100%;
-      box-sizing: border-box;
-      padding: 1rem;
-      background-color: transparent;
-    }
-    .input-wrapper {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+#addon-container {
+  font-family: sofia-pro, sans-serif;
+  font-size: 1.2rem;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  height: auto;
+  box-sizing: border-box;
+  padding: 1rem;
+  background-color: transparent;
+}
+    
 
 #input-icon {
   position: relative;
@@ -99,35 +95,42 @@
   100% { transform: rotate(360deg); }
 }
 
-    #text-prompt {
-        width: 95%;
-        margin: 0;
-    }
+#text-prompt {
+    width: 95%;
+    margin: 0 0 5px 0;
+}
     #user-input {
-        width: 95%;
-        height: 2rem;
-        padding: 0.25rem;
-        margin-top: 0.5rem;
-        margin-right: 40px;
-        border-radius: 4px;
-        border: 1px solid #ccc;
-        font-family: Arial, sans-serif;
-        font-size: 1rem;
-        outline: none;
-        display: flex;
-        justify-content: center;
-    transition: border-color 0.3s ease-in-out;
+        display: inline-block;
+        margin: 0;
+        padding: 0.625rem 1rem;
+        width: 100%;
+        font-family: sofia-pro, sans-serif;
+        font-size: 1.1rem;
+        line-height: 1.3;
+        background-color: #fff;
+        color: #374151;
+        border-width: 1px;
+        border-style: solid;
+        border-color: #9ca3af;
+        border-radius: 0.20rem;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        transition-property: border, background-color, box-shadow;
+        transition-duration: 200ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        pointer-events: auto;
     }
-    
-    #user-input.loading {
-    border-color: #ff4500; /* or choose a color that fits your design */
+
+#user-input.loading {
+border-color: #ff4500; /* or choose a color that fits your design */
 }
 
-    .carousel-wrapper {
-        display: flex;
-        align-items: center;
-        position: relative;
-    }
+.carousel-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
 
 .carousel-arrow {
   position: absolute;
@@ -144,19 +147,6 @@
   right: 0;
 }
 
-    #user-input:focus {
-      box-shadow: 0 0 0 2px rgba(0, 0, 255, 0.2);
-      outline: none;
-      border: none;
-    }
-        @keyframes spinner {
-        0% {
-          transform: translate3d(-50%, -50%, 0) rotate(0deg);
-        }
-        100% {
-          transform: translate3d(-50%, -50%, 0) rotate(360deg);
-        }
-      }
       #custom-spinner::before {
   animation: 1.5s linear infinite spinner;
   animation-play-state: inherit;
@@ -242,17 +232,29 @@
           padding: 0;
         }
         
-        #ellipses {
-     position: absolute;
-    top: -5px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 16px;
+    .input-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+}
+
+#text-prompt {
+  /* Your existing styles */
+  flex-grow: 1; /* Allow this element to take remaining horizontal space */
+}
+
+    #ellipses {
+        font-size: 24px; /* Adjust the size here */
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        text-align: center;
+        pointer-events: none;
+        align-items: center;
+    }
+
+#ellipses.hidden {
     opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    text-align: center;
-    width: 100%;
-    pointer-events: none;
 }
 
 #ellipses.visible {
@@ -271,13 +273,13 @@
 }
   </style>
   <div id="addon-container">
+      <div id="ellipses" class="hidden">•••</div>
     <div class="input-wrapper">
       <img src="https://www.rebuyengine.com/hubfs/www/media_kit/RebuyIcon-40x40.svg" alt="Icon" id="input-icon" />
-      <div style="display: flex; flex-direction: column; width: 100%;">
+      <div style="position: relative; display: flex; flex-direction: column; width: 100%;">
         <p id="text-prompt">Let's make sure you found what you were looking for.</p>
         <div style="position: relative;"> <!-- Add this wrapper div -->
           <input type="text" id="user-input" placeholder="Type your message..." />
-          <div id="ellipses" class="hidden">...</div>
         </div>
       </div>
     </div>
@@ -307,11 +309,13 @@
             if (event.key === "Enter" || event.keyCode === 13) {
                 event.preventDefault();
                 sendMessage();
+                userInput.value = "";
             }
         });
 
         // Load Splide.js and its CSS
         loadSplideCSS();
+        loadStyles();
         loadSplide(initializeCarousel);
     }
 
@@ -337,6 +341,7 @@
         const message = userInput.value;
         const logo = document.querySelector("#input-icon");
         const ellipses = document.querySelector("#ellipses");
+        const textPrompt = document.querySelector("#text-prompt");
 
         if (message.trim() === "") {
             return;
@@ -346,7 +351,11 @@
 
         // Show the spinner
         logo.style.animation = "spin 2s linear infinite";
+        textPrompt.classList.add("hidden");
+        ellipses.classList.remove("hidden");
         ellipses.classList.add("visible");
+        userInput.disabled = true;
+        //updatePrompt('');
 
         // Prepare the request headers
         const headers = new Headers({
@@ -430,14 +439,15 @@
                 console.error("Error sending message:", responseData);
             }
         } catch (error) {
-            logo.style.animation = "";
-            ellipses.classList.remove("visible");
             console.error("Error sending message:", error);
         }
 
         logo.style.animation = "";
         userInput.classList.remove("loading");
         ellipses.classList.remove("visible");
+        ellipses.classList.add("hidden");
+        textPrompt.classList.remove("hidden");
+        userInput.disabled = false;
 
         userInput.value = "";
     }
@@ -457,14 +467,20 @@
         document.head.appendChild(link);
     }
 
+    function loadStyles() {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'https://use.typekit.net/wwu2vrm.css';
+        document.head.appendChild(link);
+    }
     async function addProductToCart(variantId, quantity) {
         const formData = {
             items: [{
                 id: variantId,
                 quantity: quantity,
-                line_item_properties: {
+                properties: {
                     '_source': 'Rebuy',
-                    '_attribution': 'rebuy-assistant'
+                    '_attribution': 'Rebuy Assistant'
                 },
             }],
         };
