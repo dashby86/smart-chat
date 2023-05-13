@@ -287,10 +287,9 @@
         </ul>
       </div>
       <button class="splide-collapse-button">
-  <svg viewBox="0 0 20 20" fill="currentColor">  <!-- add fill attribute -->
-  <circle cx="10" cy="10" r="4" fill="#fff"/>
-  <path d="M5,5 L15,15 M15,5 L5,15" stroke="#fff" fill="none"/>  <!-- change stroke to white -->
-</svg>
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M1.646 11.854a.5.5 0 0 0 .708 0L8 6.207l5.646 5.647a.5.5 0 0 0 .708-.708l-6-6a.5.5 0 0 0-.708 0l-6 6a.5.5 0 0 0 0 .708z"/>
+  </svg>
 </button>
 
     </div>
