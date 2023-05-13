@@ -204,17 +204,13 @@ border-color: #ff4500; /* or choose a color that fits your design */
   right: 10px;
   top: 10px;
   background: none;  /* change the color to something more visible */
-  color: #fff;  /* change the color of the svg to white */
+  color: black;  /* change the color of the svg to white */
   border: none;
   font-size: 1.2rem;
   padding: 6px;  /* increase the padding to make the button larger */
   border-radius: 50%;
   cursor: pointer;
   z-index: 5;  /* ensure the button is always on top */
-}
-
-.splide-collapse-button:hover {
-  background: #666;  /* change the color on hover to give some interaction feedback */
 }
 
 .add-to-cart:hover {
