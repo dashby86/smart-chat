@@ -203,7 +203,7 @@ border-color: #ff4500; /* or choose a color that fits your design */
   position: absolute;
   right: 10px;
   top: 10px;
-  background: #333;  /* change the color to something more visible */
+  background: none;  /* change the color to something more visible */
   color: #fff;  /* change the color of the svg to white */
   border: none;
   font-size: 1.2rem;
