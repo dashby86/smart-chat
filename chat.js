@@ -199,23 +199,21 @@ border-color: #ff4500; /* or choose a color that fits your design */
 }
 
 .splide-collapse-button {
- display: none;
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  background: #333;  /* change the color to something more visible */
-  color: #fff;  /* change the color of the svg to white */
-  border: none;
-  font-size: 1.2rem;
-  padding: 6px;  /* increase the padding to make the button larger */
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 5;  /* ensure the button is always on top */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px; /* Add some margin to separate it from the input */
+    background: none;  /* change the color to something more visible */
+    color: black;  /* change the color of the svg to white */
+    border: none;
+    font-size: 1.2rem;
+    padding: 6px;  /* increase the padding to make the button larger */
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 5;  /* ensure the button is always on top */
 }
 
-.splide-collapse-button:hover {
-  background: #666;  /* change the color on hover to give some interaction feedback */
-}
+
 
 .add-to-cart:hover {
     background: #444444; /* Change the background color on hover */
@@ -278,9 +276,15 @@ border-color: #ff4500; /* or choose a color that fits your design */
       <img src="https://www.rebuyengine.com/hubfs/www/media_kit/RebuyIcon-40x40.svg" alt="Icon" id="input-icon" />
       <div style="position: relative; display: flex; flex-direction: column; width: 100%;">
         <p id="text-prompt">Let's make sure you found what you were looking for.</p>
-        <div style="position: relative;"> <!-- Add this wrapper div -->
-          <input type="text" id="user-input" placeholder="Type your message..." />
-        </div>
+        <div style="position: relative; display: flex; align-items: center;"> <!-- Add this wrapper div -->
+    <input type="text" id="user-input" placeholder="Type your message..." style="flex-grow: 1;" />
+    <button class="splide-collapse-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1.646 11.854a.5.5 0 0 0 .708 0L8 6.207l5.646 5.647a.5.5 0 0 0 .708-.708l-6-6a.5.5 0 0 0-.708 0l-6 6a.5.5 0 0 0 0 .708z"/>
+        </svg>
+    </button>
+</div>
+
       </div>
     </div>
     <div id="product-carousel" class="carousel splide splide-collapse">
@@ -288,13 +292,6 @@ border-color: #ff4500; /* or choose a color that fits your design */
         <ul class="splide__list">
         </ul>
       </div>
-      <button class="splide-collapse-button">
-  <svg viewBox="0 0 20 20" fill="currentColor">  <!-- add fill attribute -->
-  <circle cx="10" cy="10" r="4" fill="#fff"/>
-  <path d="M5,5 L15,15 M15,5 L5,15" stroke="#fff" fill="none"/>  <!-- change stroke to white -->
-</svg>
-</button>
-
     </div>
   </div>
 `;
