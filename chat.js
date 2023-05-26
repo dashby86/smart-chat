@@ -409,12 +409,14 @@ border-color: #ff4500; /* or choose a color that fits your design */
 
                     collapseButton.addEventListener('click', function() {
                         const carousel = document.getElementById('product-carousel');
+                        const toggleButton = document.querySelector('.splide-collapse-button');
+
                         if (carousel.style.display === 'none') {
                             carousel.style.display = 'block';
-                            collapseButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 11.854a.5.5 0 0 0 .708 0L8 6.207l5.646 5.647a.5.5 0 0 0 .708-.708l-6-6a.5.5 0 0 0-.708 0l-6 6a.5.5 0 0 0 0 .708z"/></svg>';
+                            toggleButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 11.854a.5.5 0 0 0 .708 0L8 6.207l5.646 5.647a.5.5 0 0 0 .708-.708l-6-6a.5.5 0 0 0-.708 0l-6 6a.5.5 0 0 0 0 .708z"/></svg>';
                         } else {
                             carousel.style.display = 'none';
-                            collapseButton.style.display = 'none';  // Hide the button when carousel is collapsed
+                            toggleButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.146a.5.5 0 0 1 .708 0L8 8.793l5.646-4.647a.5.5 0 1 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>';
                         }
                     });
 
