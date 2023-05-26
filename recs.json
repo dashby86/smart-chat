@@ -1,0 +1,757 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "default": {},
+  "title": "Root Schema",
+  "required": [
+    "data",
+    "metadata"
+  ],
+  "properties": {
+    "data": {
+      "type": "array",
+      "default": [],
+      "title": "The data Schema",
+      "items": {
+        "type": "object",
+        "default": {},
+        "title": "A Schema",
+        "required": [
+          "admin_graphql_api_id",
+          "body_html",
+          "created_at",
+          "description",
+          "handle",
+          "id",
+          "image",
+          "images",
+          "options",
+          "product_type",
+          "published_at",
+          "status",
+          "tags",
+          "template_suffix",
+          "title",
+          "updated_at",
+          "vendor",
+          "variants",
+          "collection_ids",
+          "cache_info",
+          "link",
+          "owner"
+        ],
+        "properties": {
+          "admin_graphql_api_id": {
+            "type": "string",
+            "default": "",
+            "title": "The admin_graphql_api_id Schema"
+          },
+          "body_html": {
+            "type": "string",
+            "default": "",
+            "title": "The body_html Schema"
+          },
+          "created_at": {
+            "type": "string",
+            "default": "",
+            "title": "The created_at Schema"
+          },
+          "description": {
+            "type": "string",
+            "default": "",
+            "title": "The description Schema"
+          },
+          "handle": {
+            "type": "string",
+            "default": "",
+            "title": "The handle Schema"
+          },
+          "id": {
+            "type": "integer",
+            "default": 0,
+            "title": "The id Schema"
+          },
+          "image": {
+            "type": "object",
+            "default": {},
+            "title": "The image Schema",
+            "required": [
+              "admin_graphql_api_id",
+              "alt",
+              "height",
+              "id",
+              "position",
+              "product_id",
+              "src",
+              "variant_ids",
+              "width"
+            ],
+            "properties": {
+              "admin_graphql_api_id": {
+                "type": "string",
+                "default": "",
+                "title": "The admin_graphql_api_id Schema"
+              },
+              "alt": {
+                "type": "null",
+                "default": null,
+                "title": "The alt Schema"
+              },
+              "height": {
+                "type": "integer",
+                "default": 0,
+                "title": "The height Schema"
+              },
+              "id": {
+                "type": "integer",
+                "default": 0,
+                "title": "The id Schema"
+              },
+              "position": {
+                "type": "integer",
+                "default": 0,
+                "title": "The position Schema"
+              },
+              "product_id": {
+                "type": "integer",
+                "default": 0,
+                "title": "The product_id Schema"
+              },
+              "src": {
+                "type": "string",
+                "default": "",
+                "title": "The src Schema"
+              },
+              "variant_ids": {
+                "type": "array",
+                "default": [],
+                "title": "The variant_ids Schema",
+                "items": {
+                  "type": "integer",
+                  "default": 0,
+                  "title": "A Schema"
+                }
+              },
+              "width": {
+                "type": "integer",
+                "default": 0,
+                "title": "The width Schema"
+              }
+            }
+          },
+          "images": {
+            "type": "array",
+            "default": [],
+            "title": "The images Schema",
+            "items": {
+              "type": "object",
+              "title": "A Schema",
+              "required": [
+                "admin_graphql_api_id",
+                "alt",
+                "height",
+                "id",
+                "position",
+                "product_id",
+                "src",
+                "variant_ids",
+                "width"
+              ],
+              "properties": {
+                "admin_graphql_api_id": {
+                  "type": "string",
+                  "title": "The admin_graphql_api_id Schema"
+                },
+                "alt": {
+                  "type": "null",
+                  "title": "The alt Schema"
+                },
+                "height": {
+                  "type": "integer",
+                  "title": "The height Schema"
+                },
+                "id": {
+                  "type": "integer",
+                  "title": "The id Schema"
+                },
+                "position": {
+                  "type": "integer",
+                  "title": "The position Schema"
+                },
+                "product_id": {
+                  "type": "integer",
+                  "title": "The product_id Schema"
+                },
+                "src": {
+                  "type": "string",
+                  "title": "The src Schema"
+                },
+                "variant_ids": {
+                  "type": "array",
+                  "title": "The variant_ids Schema",
+                  "items": {
+                    "type": "integer",
+                    "title": "A Schema"
+                  }
+                },
+                "width": {
+                  "type": "integer",
+                  "title": "The width Schema"
+                }
+              }
+            }
+          },
+          "options": {
+            "type": "array",
+            "default": [],
+            "title": "The options Schema",
+            "items": {
+              "type": "object",
+              "default": {},
+              "title": "A Schema",
+              "required": [
+                "id",
+                "name",
+                "position",
+                "product_id",
+                "values"
+              ],
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "default": 0,
+                  "title": "The id Schema"
+                },
+                "name": {
+                  "type": "string",
+                  "default": "",
+                  "title": "The name Schema"
+                },
+                "position": {
+                  "type": "integer",
+                  "default": 0,
+                  "title": "The position Schema"
+                },
+                "product_id": {
+                  "type": "integer",
+                  "default": 0,
+                  "title": "The product_id Schema"
+                },
+                "values": {
+                  "type": "array",
+                  "default": [],
+                  "title": "The values Schema",
+                  "items": {
+                    "type": "string",
+                    "title": "A Schema"
+                  }
+                }
+              }
+            }
+          },
+          "product_type": {
+            "type": "string",
+            "default": "",
+            "title": "The product_type Schema"
+          },
+          "published_at": {
+            "type": "string",
+            "default": "",
+            "title": "The published_at Schema"
+          },
+          "status": {
+            "type": "string",
+            "default": "",
+            "title": "The status Schema"
+          },
+          "tags": {
+            "type": "string",
+            "default": "",
+            "title": "The tags Schema"
+          },
+          "template_suffix": {
+            "type": "string",
+            "default": "",
+            "title": "The template_suffix Schema"
+          },
+          "title": {
+            "type": "string",
+            "default": "",
+            "title": "The title Schema"
+          },
+          "updated_at": {
+            "type": "string",
+            "default": "",
+            "title": "The updated_at Schema"
+          },
+          "vendor": {
+            "type": "string",
+            "default": "",
+            "title": "The vendor Schema"
+          },
+          "variants": {
+            "type": "array",
+            "default": [],
+            "title": "The variants Schema",
+            "items": {
+              "type": "object",
+              "title": "A Schema",
+              "required": [
+                "admin_graphql_api_id",
+                "barcode",
+                "compare_at_price",
+                "created_at",
+                "grams",
+                "id",
+                "image_id",
+                "inventory_management",
+                "inventory_policy",
+                "inventory_quantity",
+                "option1",
+                "option2",
+                "option3",
+                "position",
+                "price",
+                "product_id",
+                "requires_shipping",
+                "sku",
+                "tax_code",
+                "taxable",
+                "title",
+                "updated_at",
+                "weight",
+                "weight_unit",
+                "link"
+              ],
+              "properties": {
+                "admin_graphql_api_id": {
+                  "type": "string",
+                  "title": "The admin_graphql_api_id Schema"
+                },
+                "barcode": {
+                  "type": "string",
+                  "title": "The barcode Schema"
+                },
+                "compare_at_price": {
+                  "type": "null",
+                  "title": "The compare_at_price Schema"
+                },
+                "created_at": {
+                  "type": "string",
+                  "title": "The created_at Schema"
+                },
+                "grams": {
+                  "type": "integer",
+                  "title": "The grams Schema"
+                },
+                "id": {
+                  "type": "integer",
+                  "title": "The id Schema"
+                },
+                "image_id": {
+                  "type": "integer",
+                  "title": "The image_id Schema"
+                },
+                "inventory_management": {
+                  "type": "null",
+                  "title": "The inventory_management Schema"
+                },
+                "inventory_policy": {
+                  "type": "string",
+                  "title": "The inventory_policy Schema"
+                },
+                "inventory_quantity": {
+                  "type": "integer",
+                  "title": "The inventory_quantity Schema"
+                },
+                "option1": {
+                  "type": "string",
+                  "title": "The option1 Schema"
+                },
+                "option2": {
+                  "type": "null",
+                  "title": "The option2 Schema"
+                },
+                "option3": {
+                  "type": "null",
+                  "title": "The option3 Schema"
+                },
+                "position": {
+                  "type": "integer",
+                  "title": "The position Schema"
+                },
+                "price": {
+                  "type": "string",
+                  "title": "The price Schema"
+                },
+                "product_id": {
+                  "type": "integer",
+                  "title": "The product_id Schema"
+                },
+                "requires_shipping": {
+                  "type": "boolean",
+                  "title": "The requires_shipping Schema"
+                },
+                "sku": {
+                  "type": "string",
+                  "title": "The sku Schema"
+                },
+                "tax_code": {
+                  "type": "string",
+                  "title": "The tax_code Schema"
+                },
+                "taxable": {
+                  "type": "boolean",
+                  "title": "The taxable Schema"
+                },
+                "title": {
+                  "type": "string",
+                  "title": "The title Schema"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "title": "The updated_at Schema"
+                },
+                "weight": {
+                  "type": "integer",
+                  "title": "The weight Schema"
+                },
+                "weight_unit": {
+                  "type": "string",
+                  "title": "The weight_unit Schema"
+                },
+                "link": {
+                  "type": "string",
+                  "title": "The link Schema"
+                }
+              }
+            }
+          },
+          "collection_ids": {
+            "type": "array",
+            "default": [],
+            "title": "The collection_ids Schema",
+            "items": {
+              "type": "integer",
+              "title": "A Schema"
+            }
+          },
+          "cache_info": {
+            "type": "object",
+            "default": {},
+            "title": "The cache_info Schema",
+            "required": [
+              "loaded_options",
+              "cached_at_time",
+              "cache_key",
+              "cache_key_readable"
+            ],
+            "properties": {
+              "loaded_options": {
+                "type": "object",
+                "default": {},
+                "title": "The loaded_options Schema",
+                "required": [
+                  "metafields",
+                  "variant_metafields",
+                  "selling_plans",
+                  "shopify_selling_plans_loaded",
+                  "presentment_prices"
+                ],
+                "properties": {
+                  "metafields": {
+                    "type": "boolean",
+                    "default": false,
+                    "title": "The metafields Schema"
+                  },
+                  "variant_metafields": {
+                    "type": "boolean",
+                    "default": false,
+                    "title": "The variant_metafields Schema"
+                  },
+                  "selling_plans": {
+                    "type": "boolean",
+                    "default": false,
+                    "title": "The selling_plans Schema"
+                  },
+                  "shopify_selling_plans_loaded": {
+                    "type": "boolean",
+                    "default": false,
+                    "title": "The shopify_selling_plans_loaded Schema"
+                  },
+                  "presentment_prices": {
+                    "type": "boolean",
+                    "default": false,
+                    "title": "The presentment_prices Schema"
+                  }
+                }
+              },
+              "cached_at_time": {
+                "type": "string",
+                "default": "",
+                "title": "The cached_at_time Schema"
+              },
+              "cache_key": {
+                "type": "string",
+                "default": "",
+                "title": "The cache_key Schema"
+              },
+              "cache_key_readable": {
+                "type": "string",
+                "default": "",
+                "title": "The cache_key_readable Schema"
+              }
+            }
+          },
+          "link": {
+            "type": "string",
+            "default": "",
+            "title": "The link Schema"
+          },
+          "owner": {
+            "type": "integer",
+            "default": 0,
+            "title": "The owner Schema"
+          }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "default": {},
+      "title": "The metadata Schema",
+      "required": [
+        "input_products",
+        "cart_items",
+        "matched_rules",
+        "unmatched_rules",
+        "unevaluated_rules",
+        "filtered_oos_products",
+        "filtered_input_products",
+        "global_excluded_products",
+        "errors",
+        "shopify_customer",
+        "cache_info"
+      ],
+      "properties": {
+        "input_products": {
+          "type": "array",
+          "default": [],
+          "title": "The input_products Schema",
+          "items": {}
+        },
+        "cart_items": {
+          "type": "array",
+          "default": [],
+          "title": "The cart_items Schema",
+          "items": {}
+        },
+        "matched_rules": {
+          "type": "array",
+          "default": [],
+          "title": "The matched_rules Schema",
+          "items": {
+            "type": "object",
+            "default": {},
+            "title": "A Schema",
+            "required": [
+              "logic",
+              "output",
+              "exit_if_matched",
+              "index"
+            ],
+            "properties": {
+              "logic": {
+                "type": "array",
+                "default": [],
+                "title": "The logic Schema",
+                "items": {
+                  "type": "object",
+                  "default": {},
+                  "title": "A Schema",
+                  "required": [
+                    "rules"
+                  ],
+                  "properties": {
+                    "rules": {
+                      "type": "array",
+                      "default": [],
+                      "title": "The rules Schema",
+                      "items": {
+                        "type": "object",
+                        "default": {},
+                        "title": "A Schema",
+                        "required": [
+                          "type",
+                          "operator",
+                          "value",
+                          "products"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "default": "",
+                            "title": "The type Schema"
+                          },
+                          "operator": {
+                            "type": "string",
+                            "default": "",
+                            "title": "The operator Schema"
+                          },
+                          "value": {
+                            "type": "string",
+                            "default": "",
+                            "title": "The value Schema"
+                          },
+                          "products": {
+                            "type": "array",
+                            "default": [],
+                            "title": "The products Schema",
+                            "items": {}
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "output": {
+                "type": "array",
+                "default": [],
+                "title": "The output Schema",
+                "items": {
+                  "type": "object",
+                  "default": {},
+                  "title": "A Schema",
+                  "required": [
+                    "type",
+                    "endpoint"
+                  ],
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "default": "",
+                      "title": "The type Schema"
+                    },
+                    "endpoint": {
+                      "type": "string",
+                      "default": "",
+                      "title": "The endpoint Schema"
+                    }
+                  }
+                }
+              },
+              "exit_if_matched": {
+                "type": "boolean",
+                "default": false,
+                "title": "The exit_if_matched Schema"
+              },
+              "index": {
+                "type": "integer",
+                "default": 0,
+                "title": "The index Schema"
+              }
+            }
+          }
+        },
+        "unmatched_rules": {
+          "type": "array",
+          "default": [],
+          "title": "The unmatched_rules Schema",
+          "items": {}
+        },
+        "unevaluated_rules": {
+          "type": "array",
+          "default": [],
+          "title": "The unevaluated_rules Schema",
+          "items": {}
+        },
+        "filtered_oos_products": {
+          "type": "array",
+          "default": [],
+          "title": "The filtered_oos_products Schema",
+          "items": {}
+        },
+        "filtered_input_products": {
+          "type": "array",
+          "default": [],
+          "title": "The filtered_input_products Schema",
+          "items": {}
+        },
+        "global_excluded_products": {
+          "type": "array",
+          "default": [],
+          "title": "The global_excluded_products Schema",
+          "items": {}
+        },
+        "errors": {
+          "type": "array",
+          "default": [],
+          "title": "The errors Schema",
+          "items": {}
+        },
+        "shopify_customer": {
+          "type": "object",
+          "default": {},
+          "title": "The shopify_customer Schema",
+          "required": [
+            "first_name",
+            "last_name"
+          ],
+          "properties": {
+            "first_name": {
+              "type": "string",
+              "default": "",
+              "title": "The first_name Schema"
+            },
+            "last_name": {
+              "type": "string",
+              "default": "",
+              "title": "The last_name Schema"
+            }
+          }
+        },
+        "cache_info": {
+          "type": "object",
+          "default": {},
+          "title": "The cache_info Schema",
+          "required": [
+            "cache_key",
+            "cache_key_readable",
+            "cached_at_time",
+            "cache_expires",
+            "cache_type"
+          ],
+          "properties": {
+            "cache_key": {
+              "type": "string",
+              "default": "",
+              "title": "The cache_key Schema"
+            },
+            "cache_key_readable": {
+              "type": "string",
+              "default": "",
+              "title": "The cache_key_readable Schema"
+            },
+            "cached_at_time": {
+              "type": "string",
+              "default": "",
+              "title": "The cached_at_time Schema"
+            },
+            "cache_expires": {
+              "type": "integer",
+              "default": 0,
+              "title": "The cache_expires Schema"
+            },
+            "cache_type": {
+              "type": "string",
+              "default": "",
+              "title": "The cache_type Schema"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -407,6 +407,20 @@ border-color: #ff4500; /* or choose a color that fits your design */
                         document.querySelector("#product-carousel .splide__list").insertAdjacentHTML("beforeend", productCard);
                     });
 
+                    const collapseButton = document.querySelector('.splide-collapse-button');
+                    collapseButton.style.display = 'inline-block';  // Show the button
+
+                    collapseButton.addEventListener('click', function() {
+                        const carousel = document.getElementById('product-carousel');
+                        if (carousel.style.display === 'none') {
+                            carousel.style.display = 'block';
+                            collapseButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 11.854a.5.5 0 0 0 .708 0L8 6.207l5.646 5.647a.5.5 0 0 0 .708-.708l-6-6a.5.5 0 0 0-.708 0l-6 6a.5.5 0 0 0 0 .708z"/></svg>';
+                        } else {
+                            carousel.style.display = 'none';
+                            collapseButton.style.display = 'none';  // Hide the button when carousel is collapsed
+                        }
+                    });
+
                     const addToCartButtons = document.querySelectorAll(".add-to-cart");
                     addToCartButtons.forEach(button => {
                         button.addEventListener("click", async (event) => {
@@ -433,6 +447,9 @@ border-color: #ff4500; /* or choose a color that fits your design */
                             toggleButton.style.display = 'none';
                         }
                     });
+                }
+                else {
+                    document.querySelector('.splide-collapse-button').style.display = 'none';
                 }
             } else {
                 logo.style.animation = "";
