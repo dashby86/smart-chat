@@ -199,7 +199,6 @@ border-color: #ff4500; /* or choose a color that fits your design */
 }
 
 .splide-collapse-button {
-    display: flex;
     align-items: center;
     justify-content: center;
     margin-left: 10px; /* Add some margin to separate it from the input */
@@ -210,6 +209,7 @@ border-color: #ff4500; /* or choose a color that fits your design */
     padding: 6px;  /* increase the padding to make the button larger */
     border-radius: 50%;
     cursor: pointer;
+    display: none;
     z-index: 5;  /* ensure the button is always on top */
 }
 
